@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="loader" id="loader">
+      <div class="wrapper">
+        <!-- <div class="spinner"></div> -->
+        <h1 class="zetta">LOADING</h1>
+      </div>
+    </div>
+
+    <div class="black-background" id="black-background"></div>
+
+    <header>  
+      <nav id="navigation">
+        <div class="nav-menu">
+          <button class="nav-button" id="sidebar-open">
+            <img src="assets/logo/menu.svg" alt="" style="color: white" />
+          </button>
+        </div>
+
+        <h1 class="nav-title zetta"><a href="">ACMO</a></h1>
+
+        <ul class="nav-links">
+          <li>
+            <a href="/login.html"><img src="assets/logo/user.svg" alt="User" /></a>
+          </li>
+
+          <li>
+            <a href="/shop.html"><img src="assets/logo/shop.svg" alt="Shop" /></a>
+          </li>
+          <li>
+            <button id="cart-view"><img src="assets/logo/cart-2.svg" alt="Cart" style="filter: invert(1)" /></button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-bg" id="sidebar-bg"></div>
+
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <button id="sidebar-close"><img src="assets/logo/exit.svg" alt="" /></button>
+          <div class="search-wrapper">
+            <input class="search" type="text" placeholder="SEARCH" />
+            <button><img src="assets/logo/search.svg" alt="" /></button>
+          </div>
+        </div>
+
+        <ul class="sidebar-list">
+          <!-- <li><a href="">NEW ARRIVALS</a></li> -->
+          <li><a href="shop.html?category=tops">TOPS</a></li>
+          <li><a href="shop.html?category=jackets">JACKETS</a></li>
+          <li><a href="shop.html?category=bottoms">BOTTOMS</a></li>
+          <li><a href="shop.html?category=dresses">DRESSES</a></li>
+          <li><a href="shop.html?category=accessories">ACCESSORIES</a></li>
+          <li><a href="shop.html?category=footwear">FOOTWEAR</a></li>
+          <li><a href="" class="last">VIEW ALL</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar" id="sidebar-cart" open="cart-view" close="sidebar-cart-close" target="right">
+        <div class="sidebar-header">
+          <h2>CART</h2>
+          <button id="sidebar-cart-close"><img src="assets/logo/exit.svg" alt="" /></button>
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="cart-item">
+            <div class="cart-header">
+              <h6 class="exa">Graphic Cropped Shirt</h6>
+              <button class="close"><img src="assets/logo/exit.svg" alt="" /></button>
+            </div>
+            <div class="cart-body">
+              <div class="cart-count">
+                <button class="cart-button">-</button>
+                <span class="cart-count exa">1</span>
+                <button class="cart-button">+</button>
+              </div>
+              <span class="price exa" id="cart-price">₱549.00</span>
+            </div>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <div class="header deca">
+            <h4 class="exa">TOTAL</h4>
+            <span>₱100.00</span>
+          </div>
+          <span class="description deca">Shipping and discount codes are calculated at checkout.</span>
+          <button class="checkout deca">Check out</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="img-section" id="carousel">
+        <div class="carousel-images" id="carousel-images">
+          <img class="img-1" id="carousel-item" src="assets/images/sasha-lebedeva-VwGcsgeM-YM-unsplash.png" alt="" />
+          <img class="img-1" id="carousel-item" src="assets/images/pexels-rfera-432059.jpg" alt="" />
+          <img class="img-1" id="carousel-item" src="assets/images/adele-shafiee-kfcbzX6oNlA-unsplash.jpg" alt="" />
+        </div>
+
+        <div class="shop-1">
+          <a class="zetta" href="/shop.html">SHOP NOW</a>
+          <div class="carousel-buttons" id="carousel-buttons">
+            <!-- <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span> -->
+          </div>
+        </div>
+      </section>
+
+      <section class="img-section-2">
+        <a href="/shop.html" class="card-section">
+          <img src="assets/images/reynier-carl-87m1_NfKld4-unsplash.jpg" alt="" />
+          <h2 class="peta">TAP TO VIEW</h2>
+        </a>
+
+        <a href="/shop.html" class="card-section secondary">
+          <img src="assets/images/kahara-5NiZHIvIP4M-unsplash.jpg" alt="" />
+          <h2 class="peta">TAP TO VIEW</h2>
+        </a>
+      </section>
+
+      <section>
+        <div class="section-header">
+          <h2 class="section-title zetta" style="font-size: 2rem">NEW <span class="peta" style="font-weight: lighter">ARRIVALS</span></h2>
+          <ul class="section-links">
+            <li><a href="/shop.html" class="giga">Featured</a></li>
+            <li><a href="/shop.html" class="giga">Best Selling</a></li>
+          </ul>
+        </div>
+
+        <div class="section-images">
+          <a href="/shop.html" class="card">
+            <img src="assets/images/986305-Black_1.webp" alt="" />
+            <h5>MEN'S TOPS</h5>
+          </a>
+          <a href="/shop.html" class="card">
+            <img src="assets/images/PEN-Q2_1333x2000_px_CATEGORY_BANNERS_MENS_BOTTOMS_96f18bfc-1b46-492a-8980-c8d2b35642e7.webp" alt="" />
+            <h5>MEN'S BOTTOMS</h5>
+          </a>
+          <a href="/shop.html" class="card">
+            <img src="assets/images/988338-Off_White_1.webp" alt="" />
+            <h5>WOMEN'S TOPS</h5>
+          </a>
+          <a href="/shop.html" class="card">
+            <img src="assets/images/PEN-Q2_1333x2000_px_CATEGORY_BANNERS_WOMENS_BOTTOMS_5ad612b6-654d-489b-9381-7acb213d9b6a.webp" alt="" />
+            <h5>WOMEN'S BOTTOMS</h5>
+          </a>
+        </div>
+      </section>
+
+      <section class="img-section secondary">
+        <img class="img-1" src="assets/images/bailey-alexander-pAYZOHbeZzM-unsplash.jpg" alt="" />
+        <a href="/shop.html" class="shop-2 zetta">SHOP NOW</a>
+      </section>
+    </main>
+    <footer class="footer" style="margin-top: 0">
+      <ul class="footer-section">
+        <h1>ACMO</h1>
+        <li>Angeles, Janro S.</li>
+        <li>Ansuas, Arliesienne A.</li>
+        <li>Caudilla, Justine Carl C.</li>
+        <li>Mico, Vladimir L.</li>
+        <li>Odiongan, John Evan M.</li>
+      </ul>
+
+      <ul class="footer-section">
+        <h1>Information</h1>
+        <li><a href="http://bsit1-1-contacts.com" target="_blank">Contact Us</a></li>
+        <li><a href="http://bsit1-1-aboutus.com" target="_blank">About Us</a></li>
+        <li><a href="http://bsit1-1-faqs.com" target="_blank">FAQ's</a></li>
+        <li><a href="http://bsit1-1-paymentoption.com" target="_blank">Payment Option</a></li>
+      </ul>
+
+      <ul class="footer-section">
+        <li><a href="http://bsit1-1-return.com" target="_blank">Return &amp; Exchange</a></li>
+        <li><a href="http://bsit1-1-shipping-delivery.com" target="_blank">Shipping &amp; Delivery</a></li>
+        <li><a href="http://bsit1-1-size-guide.com" target="_blank">Size Guide</a></li>
+        <li><a href="http://bsit1-1-bulk-orders.com" target="_blank">Bulk Orders</a></li>
+      </ul>
+
+      <ul class="footer-section">
+        <li><a href="http://bsit1-1-privacy-policy.com" target="_blank">Privacy Policy</a></li>
+        <li><a href="http://bsit1-1-terms-of-services.com" target="_blank">Terms of Services</a></li>
+        <li><a href="http://bsit1-1-feedback.com" target="_blank">Feedback</a></li>
+        <li><a href="http://bsit1-1-information.com" target="_blank">Information</a></li>
+      </ul>
+    </footer>
+  </body>
+  <script src="scripts/app.js"></script>
+</html>

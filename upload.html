@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        gap: 0.3rem;
+      }
+
+      button {
+        margin-top: 0.5rem;
+        padding: 0.2rem 0.5rem;
+        background-color: lightblue;
+        border-radius: 5px;
+      }
+
+      .success {
+        color: green;
+      }
+
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form" action="/upload.php" method="post" enctype="multipart/form-data">
+      <h1>Product</h1>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+      <!-- <label for="price">Price</label>
+      <input type="number" id="price" name="price" required /> -->
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender">
+        <option value="men">Men</option>
+        <option value="women">Women</option>
+      </select>
+
+      <label for="type">Type</label>
+      <select id="type" name="type">
+        <option value="Tops">Tops</option>
+        <option value="Bottoms">Bottoms</option>
+        <option value="Footwear">Footwear</option>
+        <option value="Jackets">Jackets</option>
+        <option value="Dresses">Dresses</option>
+        <option value="Swimwear">Swimwear</option>
+        <option value="Accessories">Accessories</option>
+      </select>
+
+      <label for="display">Display Image</label>
+      <input type="file" id="display" name="display" required />
+
+      <label for="hover">Hover Image</label>
+      <input type="file" name="hover" id="hover" required />
+      <div id="result"></div>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </body>
+
+  <script>
+    let form = document.getElementById("form");
+    let result = document.getElementById("result");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch("/upload.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.text())
+        .then((data) => {
+          result.className = "success";
+          result.innerHTML = data;
+          form.reset();
+        })
+        .catch((err) => {
+          result.className = "error";
+          result.innerHTML = "Error occurred.";
+          console.error(err);
+        });
+    });
+  </script>
+</html>

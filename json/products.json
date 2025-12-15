@@ -1,0 +1,871 @@
+{
+    "men": {
+        "accessories": [
+            {
+                "name": "Gray Hat",
+                "price": 2600,
+                "gender": "Men",
+                "type": "Accessories",
+                "sold": 96,
+                "stock": 13,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1750031187,
+                "images": [
+                    "assets\/products\/men\/accessories\/280 onlyAHEAD EditionClassic Mens CapAdjustable sizeLike new condition..heic",
+                    "assets\/products\/men\/accessories\/280 onlyAHEAD EditionClassic Mens CapAdjustable sizeLike new condition. (1).heic"
+                ]
+            },
+            {
+                "name": "Timeless Japanese Ring",
+                "price": 1800,
+                "gender": "Men",
+                "type": "Accessories",
+                "sold": 83,
+                "stock": 5,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1742736681,
+                "images": [
+                    "assets/products/men/accessories/NEW%20ARRIVAL.jpg",
+                    "assets/products/men/accessories/NEW%20ARRIVAL(1).jpg"
+                ]
+            },
+            {
+                "name": "Gold Chains",
+                "price": 1400,
+                "gender": "Men",
+                "type": "Accessories",
+                "sold": 93,
+                "stock": 4,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1748985113,
+                "images": [
+                    "assets\/products\/men\/accessories\/Screenshot_20250621-123153.jpg",
+                    "assets\/products\/men\/accessories\/Screenshot_20250621-123208.jpg"
+                ]
+            },
+            {
+                "name": "Silver Rounded Necklace",
+                "price": 2200,
+                "gender": "Men",
+                "type": "Accessories",
+                "sold": 76,
+                "stock": 19,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1740762718,
+                "images": [
+                    "assets\/products\/men\/accessories\/Screenshot_20250621-123242.jpg",
+                    "assets\/products\/men\/accessories\/Screenshot_20250621-123252.jpg"
+                ]
+            }
+        ],
+        "bottoms": [
+            {
+                "name": "Black Shorts",
+                "price": 1400,
+                "gender": "Men",
+                "type": "Bottoms",
+                "sold": 15,
+                "stock": 19,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1746423568,
+                "images": [
+                    "assets\/products\/men\/bottoms\/Mens Shorts (1).jpg",
+                    "assets\/products\/men\/bottoms\/Mens Shorts (3).jpg"
+                ]
+            },
+            {
+                "name": "Blue Shorts",
+                "price": 1600,
+                "gender": "Men",
+                "type": "Bottoms",
+                "sold": 2,
+                "stock": 10,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1741234759,
+                "images": [
+                    "assets\/products\/men\/bottoms\/Mens Shorts (6).jpg",
+                    "assets\/products\/men\/bottoms\/Mens Shorts (5).jpg"
+                ]
+            }
+        ],
+        "footwear": [
+            {
+                "name": "Black Shoes",
+                "price": 1600,
+                "gender": "Men",
+                "type": "Footwear",
+                "sold": 60,
+                "stock": 20,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1744247007,
+                "images": [
+                    "assets\/products\/men\/footwear\/Screenshot_20250621-123354.jpg",
+                    "assets\/products\/men\/footwear\/Screenshot_20250621-123407.jpg"
+                ]
+            },
+            {
+                "name": "Brown Shoes",
+                "price": 3000,
+                "gender": "Men",
+                "type": "Footwear",
+                "sold": 53,
+                "stock": 4,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1746629066,
+                "images": [
+                    "assets\/products\/men\/footwear\/Screenshot_20250621-123509.jpg",
+                    "assets\/products\/men\/footwear\/Screenshot_20250621-123517.jpg"
+                ]
+            }
+        ],
+        "jackets": [
+            {
+                "name": "Denim Jacket",
+                "price": 2400,
+                "gender": "Men",
+                "type": "Jackets",
+                "sold": 66,
+                "stock": 14,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1747889409,
+                "images": [
+                    "assets\/products\/men\/jackets\/Screenshot_20250621-123653.jpg",
+                    "assets\/products\/men\/jackets\/Screenshot_20250621-123707.jpg"
+                ]
+            },
+            {
+                "name": "Men Flap Pocket Drop Shoulder Denim Jacket",
+                "price": 2400,
+                "gender": "Men",
+                "type": "Jackets",
+                "sold": 32,
+                "stock": 19,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1743090009,
+                "images": [
+                    "assets\/products\/men\/jackets\/Screenshot_20250621-123914.jpg",
+                    "assets\/products\/men\/jackets\/Screenshot_20250621-123923.jpg"
+                ]
+            },
+            {
+                "name": "Camel Flap Pocket Drop Shoulder Denim Jacket",
+                "price": 1600,
+                "gender": "Men",
+                "type": "Jackets",
+                "sold": 69,
+                "stock": 10,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1736243100,
+                "images": [
+                    "assets\/products\/men\/jackets\/Screenshot_20250621-123829.jpg",
+                    "assets\/products\/men\/jackets\/Screenshot_20250621-123839.jpg"
+                ]
+            }
+        ],
+        "swimwear": [],
+        "tops": [
+            {
+                "name": "Black Leather Jacket",
+                "price": 1000,
+                "gender": "Men",
+                "type": "Tops",
+                "sold": 92,
+                "stock": 0,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1735845411,
+                "images": [
+                    "assets/products/men/tops/Early%202024.jpg",
+                    "assets/products/men/tops/Early%202024%20(1).jpg"
+                ]
+            },
+            {
+                "name": "Blue T-Shirt with striped collar",
+                "price": 2200,
+                "gender": "Men",
+                "type": "Tops",
+                "sold": 53,
+                "stock": 13,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1747889152,
+                "images": [
+                    "assets/products/men/tops/Stretch%20pique%20T-shirt.jpg",
+                    "assets/products/men/tops/Stretch%20pique%20T-shirt%20(3).jpg"
+                ]
+            },
+            {
+                "name": "Red Long Sleeve Shirt",
+                "price": 1800,
+                "gender": "Men",
+                "type": "Tops",
+                "sold": 2,
+                "stock": 8,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1737655988,
+                "images": [
+                    "assets\/products\/men\/tops\/FULL SLEEVE SHIRT \u2728More info @esq_mens_store \ud83d\udc48\ud83c\udffb\ud83d\udecd\ufe0f.jpg",
+                    "assets\/products\/men\/tops\/FULL SLEEVE SHIRT \u2728More info @esq_mens_store \ud83d\udc48\ud83c\udffb\ud83d\udecd\ufe0f (1).jpg"
+                ]
+            },
+            {
+                "name": "Striped Long Sleeve Shirt",
+                "price": 2800,
+                "gender": "Men",
+                "type": "Tops",
+                "sold": 35,
+                "stock": 8,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1742447992,
+                "images": [
+                    "assets\/products\/men\/tops\/FULL SLEEVE SHIRT \u2728More info @esq_mens_store \ud83d\udc48\ud83c\udffb\ud83d\udecd\ufe0f (2).jpg",
+                    "assets\/products\/men\/tops\/FULL SLEEVE SHIRT \u2728More info @esq_mens_store \ud83d\udc48\ud83c\udffb\ud83d\udecd\ufe0f (3).jpg"
+                ]
+            },
+            {
+                "name": "Loose Long Sleeve",
+                "price": 2800,
+                "gender": "Men",
+                "type": "Tops",
+                "sold": 45,
+                "stock": 19,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1743366725,
+                "images": [
+                    "assets\/products\/men\/tops\/Screenshot_20250621-123602.jpg",
+                    "assets\/products\/men\/tops\/Screenshot_20250621-123624.jpg"
+                ]
+            },
+            {
+                "name": "Black Polo Shirt",
+                "price": 2000,
+                "gender": "Men",
+                "type": "Tops",
+                "sold": 5,
+                "stock": 13,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1738710234,
+                "images": [
+                    "assets\/products\/men\/tops\/0170fb6099e01beb2a02bbd21be4d8f6.jpg",
+                    "assets\/products\/men\/tops\/e3020cdef390543601b9f679ac5d74d6.jpg"
+                ]
+            },
+            {
+                "name": "Jacquard Polo Shirt",
+                "price": 2200,
+                "gender": "Men",
+                "type": "Tops",
+                "sold": 88,
+                "stock": 16,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1745233296,
+                "images": [
+                    "assets\/products\/men\/tops\/Screenshot_20250621-122151.jpg",
+                    "assets\/products\/men\/tops\/Screenshot_20250621-122130.jpg"
+                ]
+            }
+        ]
+    },
+    "women": {
+        "accessories": [
+            {
+                "name": "Oval Sunglasses",
+                "price": 2200,
+                "gender": "Women",
+                "type": "Accessories",
+                "sold": 84,
+                "stock": 19,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1747481000,
+                "images": [
+                    "assets\/products\/women\/accessories\/Screenshot_20250621-124526.jpg",
+                    "assets\/products\/women\/accessories\/Screenshot_20250621-124536.jpg"
+                ]
+            },
+            {
+                "name": "Fashionable Square Decor Jewelry Set",
+                "price": 1200,
+                "gender": "Women",
+                "type": "Accessories",
+                "sold": 1,
+                "stock": 6,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1746065546,
+                "images": [
+                    "assets\/products\/women\/accessories\/Screenshot_20250621-124553.jpg",
+                    "assets\/products\/women\/accessories\/Screenshot_20250621-124628.jpg"
+                ]
+            },
+            {
+                "name": "Silver Moon Necklace Stainless Steel Necklace",
+                "price": 1400,
+                "gender": "Women",
+                "type": "Accessories",
+                "sold": 19,
+                "stock": 9,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1748356033,
+                "images": [
+                    "assets\/products\/women\/accessories\/Screenshot_20250621-124714.jpg",
+                    "assets\/products\/women\/accessories\/Screenshot_20250621-124739.jpg"
+                ]
+            },
+            {
+                "name": "Geometric Teardrop Pendant Set",
+                "price": 1800,
+                "gender": "Women",
+                "type": "Accessories",
+                "sold": 28,
+                "stock": 4,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1741447899,
+                "images": [
+                    "assets\/products\/women\/accessories\/Screenshot_20250621-124803.jpg",
+                    "assets\/products\/women\/accessories\/Screenshot_20250621-124812.jpg"
+                ]
+            },
+            {
+                "name": "Red Ferrari Cap",
+                "price": 2600,
+                "gender": "Women",
+                "type": "Accessories",
+                "sold": 90,
+                "stock": 0,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1748474561,
+                "images": [
+                    "assets\/products\/women\/accessories\/red ferrari cap (1).jpg",
+                    "assets\/products\/women\/accessories\/red ferrari cap (3).jpg"
+                ]
+            },
+            {
+                "name": "C Logo BB Cap Orange",
+                "price": 1000,
+                "gender": "Women",
+                "type": "Accessories",
+                "sold": 50,
+                "stock": 6,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1744378667,
+                "images": [
+                    "assets\/products\/women\/accessories\/red cap (2).jpg",
+                    "assets\/products\/women\/accessories\/red cap (1).jpg"
+                ]
+            },
+            {
+                "name": "Rounded Glasses",
+                "price": 1200,
+                "gender": "Women",
+                "type": "Accessories",
+                "sold": 84,
+                "stock": 1,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1747378543,
+                "images": [
+                    "assets\/products\/women\/accessories\/round glasses (2).jpg",
+                    "assets\/products\/women\/accessories\/round glasses (1).jpg"
+                ]
+            },
+            {
+                "name": "White Sneakers",
+                "price": 1000,
+                "gender": "Women",
+                "type": "Accessories",
+                "sold": 88,
+                "stock": 0,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1742516718,
+                "images": [
+                    "assets\/products\/women\/accessories\/white sneakers (2).jpg",
+                    "assets\/products\/women\/accessories\/white sneakers (3).jpg"
+                ]
+            }
+        ],
+        "bottoms": [
+            {
+                "name": "Wide Leg Track Pants",
+                "price": 2400,
+                "gender": "Women",
+                "type": "Bottoms",
+                "sold": 11,
+                "stock": 2,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1738665700,
+                "images": [
+                    "assets\/products\/women\/bottoms\/Screenshot_20250621-122510.jpg",
+                    "assets\/products\/women\/bottoms\/Screenshot_20250621-122531.jpg"
+                ]
+            },
+            {
+                "name": "Black Wide Leg Jeans",
+                "price": 2000,
+                "gender": "Women",
+                "type": "Bottoms",
+                "sold": 3,
+                "stock": 15,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1744050848,
+                "images": [
+                    "assets\/products\/women\/bottoms\/Screenshot_20250621-122847.jpg",
+                    "assets\/products\/women\/bottoms\/Screenshot_20250621-123123.jpg"
+                ]
+            },
+            {
+                "name": "Loose Wide Leg Baggy Jeans",
+                "price": 2400,
+                "gender": "Women",
+                "type": "Bottoms",
+                "sold": 92,
+                "stock": 18,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1743508040,
+                "images": [
+                    "assets\/products\/women\/bottoms\/Screenshot_20250621-122948.jpg",
+                    "assets\/products\/women\/bottoms\/Screenshot_20250621-123036.jpg"
+                ]
+            },
+            {
+                "name": "Mini Skirt",
+                "price": 2600,
+                "gender": "Women",
+                "type": "Bottoms",
+                "sold": 66,
+                "stock": 12,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1737469245,
+                "images": [
+                    "assets\/products\/women\/bottoms\/mini skirt 1 (1).jpg",
+                    "assets\/products\/women\/bottoms\/mini skirt 1 (2).jpg"
+                ]
+            }
+        ],
+        "dresses": [
+            {
+                "name": "Dark Brown Long Sundress",
+                "price": 1400,
+                "gender": "Women",
+                "type": "Dresses",
+                "sold": 58,
+                "stock": 10,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1736547879,
+                "images": [
+                    "assets\/products\/women\/dresses\/Screenshot_20250621-125127.jpg",
+                    "assets\/products\/women\/dresses\/Screenshot_20250621-125135.jpg"
+                ]
+            },
+            {
+                "name": "Light Brown Long Sundress",
+                "price": 2400,
+                "gender": "Women",
+                "type": "Dresses",
+                "sold": 39,
+                "stock": 10,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1743196855,
+                "images": [
+                    "assets\/products\/women\/dresses\/Screenshot_20250621-125225.jpg",
+                    "assets\/products\/women\/dresses\/Screenshot_20250621-125234.jpg"
+                ]
+            },
+            {
+                "name": "Black Deep V-neck Mini Dress",
+                "price": 3000,
+                "gender": "Women",
+                "type": "Dresses",
+                "sold": 89,
+                "stock": 8,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1735937573,
+                "images": [
+                    "assets\/products\/women\/dresses\/black deep v-neck mini dress (5).jpg",
+                    "assets\/products\/women\/dresses\/black deep v-neck mini dress (1).jpg"
+                ]
+            },
+            {
+                "name": "Black Fur Dress",
+                "price": 1600,
+                "gender": "Women",
+                "type": "Dresses",
+                "sold": 34,
+                "stock": 4,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1741511055,
+                "images": [
+                    "assets\/products\/women\/dresses\/black fur dress (3).jpg",
+                    "assets\/products\/women\/dresses\/black fur dress (4).jpg"
+                ]
+            },
+            {
+                "name": "Champagne Cascade Gown",
+                "price": 1200,
+                "gender": "Women",
+                "type": "Dresses",
+                "sold": 47,
+                "stock": 20,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1737826288,
+                "images": [
+                    "assets\/products\/women\/dresses\/champagne cascade gown (2).jpg",
+                    "assets\/products\/women\/dresses\/champagne cascade gown (1).jpg"
+                ]
+            },
+            {
+                "name": "French Flair Dress",
+                "price": 3000,
+                "gender": "Women",
+                "type": "Dresses",
+                "sold": 68,
+                "stock": 4,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1746009960,
+                "images": [
+                    "assets\/products\/women\/dresses\/french flair set (1).jpg",
+                    "assets\/products\/women\/dresses\/french flair set (3).jpg"
+                ]
+            },
+            {
+                "name": "Ivory Bloom Cocktail Dress",
+                "price": 1200,
+                "gender": "Women",
+                "type": "Dresses",
+                "sold": 50,
+                "stock": 18,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1746033983,
+                "images": [
+                    "assets\/products\/women\/dresses\/ivory bloom cocktail dress (3).jpg",
+                    "assets\/products\/women\/dresses\/ivory bloom cocktail dress (2).jpg"
+                ]
+            },
+            {
+                "name": "Off-shoulder White Dress",
+                "price": 1400,
+                "gender": "Women",
+                "type": "Dresses",
+                "sold": 20,
+                "stock": 14,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1745664259,
+                "images": [
+                    "assets\/products\/women\/dresses\/off-shoulder white dress (3).jpg",
+                    "assets\/products\/women\/dresses\/off-shoulder white dress (1).jpg"
+                ]
+            },
+            {
+                "name": "Yellow Tube Dress",
+                "price": 2000,
+                "gender": "Women",
+                "type": "Dresses",
+                "sold": 15,
+                "stock": 0,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1740683976,
+                "images": [
+                    "assets\/products\/women\/dresses\/yellow tube dress (1).jpg",
+                    "assets\/products\/women\/dresses\/yellow tube dress (3).jpg"
+                ]
+            }
+        ],
+        "footwear": [
+            {
+                "name": "Loafer Leather Shoes",
+                "price": 2200,
+                "gender": "Women",
+                "type": "Footwear",
+                "sold": 84,
+                "stock": 10,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1737873194,
+                "images": [
+                    "assets\/products\/women\/footwear\/Screenshot_20250621-124901.jpg",
+                    "assets\/products\/women\/footwear\/Screenshot_20250621-124914.jpg"
+                ]
+            }
+        ],
+        "tops": [
+            {
+                "name": "Peplum Top With Puff Sleeve",
+                "price": 1400,
+                "gender": "Women",
+                "type": "Tops",
+                "sold": 27,
+                "stock": 9,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1740236461,
+                "images": [
+                    "assets\/products\/women\/tops\/Screenshot_20250621-122332.jpg",
+                    "assets\/products\/women\/tops\/Screenshot_20250621-122411.jpg"
+                ]
+            },
+            {
+                "name": "Bowknot Strap Casual Tank Top",
+                "price": 2800,
+                "gender": "Women",
+                "type": "Tops",
+                "sold": 49,
+                "stock": 15,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1741584048,
+                "images": [
+                    "assets\/products\/women\/tops\/Screenshot_20250621-124058.jpg",
+                    "assets\/products\/women\/tops\/Screenshot_20250621-124107.jpg"
+                ]
+            },
+            {
+                "name": "Flap Pocket High Low Hem Overcoat ",
+                "price": 1800,
+                "gender": "Women",
+                "type": "Tops",
+                "sold": 49,
+                "stock": 8,
+                "sizes": [
+                    "Extra Small"
+                ],
+                "creation": 1749473301,
+                "images": [
+                    "assets\/products\/women\/tops\/Screenshot_20250621-124327.jpg",
+                    "assets\/products\/women\/tops\/Screenshot_20250621-124336.jpg"
+                ]
+            },
+            {
+                "name": "Pink Casual Croptop",
+                "price": 2200,
+                "gender": "Women",
+                "type": "Tops",
+                "sold": 60,
+                "stock": 13,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1746031032,
+                "images": [
+                    "assets\/products\/women\/tops\/casual terno top & pants (1).jpg",
+                    "assets\/products\/women\/tops\/casual terno top & pants (3).jpg"
+                ]
+            },
+            {
+                "name": "Ruby Racerback Top",
+                "price": 2800,
+                "gender": "Women",
+                "type": "Tops",
+                "sold": 13,
+                "stock": 8,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1750351818,
+                "images": [
+                    "assets\/products\/women\/tops\/ruby racerback top (1).jpg",
+                    "assets\/products\/women\/tops\/ruby racerback top (3).jpg"
+                ]
+            }
+        ],
+        "jackets": [
+            {
+                "name": "Black Leather Jacket",
+                "price": 1200,
+                "gender": "Women",
+                "type": "Jackets",
+                "sold": 46,
+                "stock": 10,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1736193079,
+                "images": [
+                    "assets\/products\/women\/jackets\/black leather coat (1).jpg",
+                    "assets\/products\/women\/jackets\/black leather coat (3).jpg"
+                ]
+            },
+            {
+                "name": "Beige Winter Coat",
+                "price": 2600,
+                "gender": "Men",
+                "type": "Tops",
+                "sold": 61,
+                "stock": 7,
+                "sizes": [
+                    "Extra Small",
+                    "Small"
+                ],
+                "creation": 1739478843,
+                "images": [
+                    "assets\/products\/men\/tops\/beige winter coat (2).jpg",
+                    "assets\/products\/men\/tops\/beige winter coat (1).jpg"
+                ]
+            },
+            {
+                "name": "Vintage Guess Brown Jacket",
+                "price": 3000,
+                "gender": "Women",
+                "type": "Jackets",
+                "sold": 17,
+                "stock": 3,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1739458356,
+                "images": [
+                    "assets\/products\/women\/jackets\/black pants & brown jacket terno (1).jpg",
+                    "assets\/products\/women\/jackets\/black pants & brown jacket terno (2).jpg"
+                ]
+            }
+        ]
+    }
+}
