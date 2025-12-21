@@ -29,15 +29,21 @@
 
         <ul class="nav-links">
           <li>
-            <a href="/login.html"><img src="assets/logo/user.svg" alt="User" /></a>
+            <a href="/login.php"><img src="assets/logo/user.svg" alt="User" /></a>
           </li>
 
           <li>
-            <a href="/shop.html"><img src="assets/logo/shop.svg" alt="Shop" /></a>
+            <a href="/shop.php"><img src="assets/logo/shop.svg" alt="Shop" /></a>
           </li>
           <li>
             <button id="cart-view"><img src="assets/logo/cart-2.svg" alt="Cart" style="filter: invert(1)" /></button>
           </li>
+          <?php
+          session_start();
+          if (isset($_SESSION['email'])) {
+            echo '<li><button id="signout"><img src="assets/logo/login-svgrepo-com.svg" alt="Sign out" style="filter: invert(1)" /></button></li>';
+          }
+          ?>
         </ul>
       </nav>
 
@@ -54,12 +60,12 @@
 
         <ul class="sidebar-list">
           <!-- <li><a href="">NEW ARRIVALS</a></li> -->
-          <li><a href="shop.html?category=tops">TOPS</a></li>
-          <li><a href="shop.html?category=jackets">JACKETS</a></li>
-          <li><a href="shop.html?category=bottoms">BOTTOMS</a></li>
-          <li><a href="shop.html?category=dresses">DRESSES</a></li>
-          <li><a href="shop.html?category=accessories">ACCESSORIES</a></li>
-          <li><a href="shop.html?category=footwear">FOOTWEAR</a></li>
+          <li><a href="shop.php?category=tops">TOPS</a></li>
+          <li><a href="shop.php?category=jackets">JACKETS</a></li>
+          <li><a href="shop.php?category=bottoms">BOTTOMS</a></li>
+          <li><a href="shop.php?category=dresses">DRESSES</a></li>
+          <li><a href="shop.php?category=accessories">ACCESSORIES</a></li>
+          <li><a href="shop.php?category=footwear">FOOTWEAR</a></li>
           <li><a href="" class="last">VIEW ALL</a></li>
         </ul>
       </div>
@@ -106,7 +112,7 @@
         </div>
 
         <div class="shop-1">
-          <a class="zetta" href="/shop.html">SHOP NOW</a>
+          <a class="zetta" href="/shop.php">SHOP NOW</a>
           <div class="carousel-buttons" id="carousel-buttons">
             <!-- <span class="carousel-dot"></span>
             <span class="carousel-dot"></span> -->
@@ -115,12 +121,12 @@
       </section>
 
       <section class="img-section-2">
-        <a href="/shop.html" class="card-section">
+        <a href="/shop.php" class="card-section">
           <img src="assets/images/reynier-carl-87m1_NfKld4-unsplash.jpg" alt="" />
           <h2 class="peta">TAP TO VIEW</h2>
         </a>
 
-        <a href="/shop.html" class="card-section secondary">
+        <a href="/shop.php" class="card-section secondary">
           <img src="assets/images/kahara-5NiZHIvIP4M-unsplash.jpg" alt="" />
           <h2 class="peta">TAP TO VIEW</h2>
         </a>
@@ -130,25 +136,25 @@
         <div class="section-header">
           <h2 class="section-title zetta" style="font-size: 2rem">NEW <span class="peta" style="font-weight: lighter">ARRIVALS</span></h2>
           <ul class="section-links">
-            <li><a href="/shop.html" class="giga">Featured</a></li>
-            <li><a href="/shop.html" class="giga">Best Selling</a></li>
+            <li><a href="/shop.php" class="giga">Featured</a></li>
+            <li><a href="/shop.php" class="giga">Best Selling</a></li>
           </ul>
         </div>
 
         <div class="section-images">
-          <a href="/shop.html" class="card">
+          <a href="/shop.php" class="card">
             <img src="assets/images/986305-Black_1.webp" alt="" />
             <h5>MEN'S TOPS</h5>
           </a>
-          <a href="/shop.html" class="card">
+          <a href="/shop.php" class="card">
             <img src="assets/images/PEN-Q2_1333x2000_px_CATEGORY_BANNERS_MENS_BOTTOMS_96f18bfc-1b46-492a-8980-c8d2b35642e7.webp" alt="" />
             <h5>MEN'S BOTTOMS</h5>
           </a>
-          <a href="/shop.html" class="card">
+          <a href="/shop.php" class="card">
             <img src="assets/images/988338-Off_White_1.webp" alt="" />
             <h5>WOMEN'S TOPS</h5>
           </a>
-          <a href="/shop.html" class="card">
+          <a href="/shop.php" class="card">
             <img src="assets/images/PEN-Q2_1333x2000_px_CATEGORY_BANNERS_WOMENS_BOTTOMS_5ad612b6-654d-489b-9381-7acb213d9b6a.webp" alt="" />
             <h5>WOMEN'S BOTTOMS</h5>
           </a>
@@ -157,7 +163,7 @@
 
       <section class="img-section secondary">
         <img class="img-1" src="assets/images/bailey-alexander-pAYZOHbeZzM-unsplash.jpg" alt="" />
-        <a href="/shop.html" class="shop-2 zetta">SHOP NOW</a>
+        <a href="/shop.php" class="shop-2 zetta">SHOP NOW</a>
       </section>
     </main>
     <footer class="footer" style="margin-top: 0">
@@ -194,4 +200,5 @@
     </footer>
   </body>
   <script src="scripts/app.js"></script>
+  <script src="scripts/auth.js"></script>
 </html>

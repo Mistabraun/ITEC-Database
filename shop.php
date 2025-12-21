@@ -29,15 +29,21 @@
 
         <ul class="nav-links">
           <li class="nav-black">
-            <a href="/login.html"><img src="assets/logo/user.svg" alt="User" /></a>
+            <a href="/login.php"><img src="assets/logo/user.svg" alt="User" /></a>
           </li>
 
           <li class="nav-black">
-            <a href="/shop.html"><img src="assets/logo/shop.svg" alt="Shop" /></a>
+            <a href="/shop.php"><img src="assets/logo/shop.svg" alt="Shop" /></a>
           </li>
           <li>
             <button id="cart-view"><img src="assets/logo/cart-2.svg" alt="Cart" /></button>
           </li>
+           <?php
+          session_start();
+          if (isset($_SESSION['email'])) {
+            echo '<li><button id="signout"><img src="assets/logo/login-svgrepo-com.svg" alt="Sign out" /></button></li>';
+          }
+          ?>
         </ul>
       </nav>
 
@@ -56,12 +62,12 @@
 
         <ul class="sidebar-list">
           <!-- <li><a href="">NEW ARRIVALS</a></li> -->
-          <li><a href="shop.html?category=tops">TOPS</a></li>
-          <li><a href="shop.html?category=jackets">JACKETS</a></li>
-          <li><a href="shop.html?category=bottoms">BOTTOMS</a></li>
-          <li><a href="shop.html?category=dresses">DRESSES</a></li>
-          <li><a href="shop.html?category=accessories">ACCESSORIES</a></li>
-          <li><a href="shop.html?category=footwear">FOOTWEAR</a></li>
+          <li><a href="shop.php?category=tops">TOPS</a></li>
+          <li><a href="shop.php?category=jackets">JACKETS</a></li>
+          <li><a href="shop.php?category=bottoms">BOTTOMS</a></li>
+          <li><a href="shop.php?category=dresses">DRESSES</a></li>
+          <li><a href="shop.php?category=accessories">ACCESSORIES</a></li>
+          <li><a href="shop.php?category=footwear">FOOTWEAR</a></li>
           <li><a href="" class="last">VIEW ALL</a></li>
         </ul>
       </div>
@@ -289,4 +295,5 @@
   </body>
   <script src="scripts/app.js"></script>
   <script src="scripts/shop.js"></script>
+  <script src="scripts/auth.js"></script>
 </html>

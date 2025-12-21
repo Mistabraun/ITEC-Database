@@ -1,15 +1,15 @@
 <?php
 
 $hostName = "localhost";
-$name = "root";
-$password = "";
-$databaseName = "storedb";
+$databaseName = "root";
+$databasePassword = "";
+$databaseDatababseName = "storedb";
 
 $connection = new mysqli(
     $hostName,
-    $name,
-    $password,
-    $databaseName
+    $databaseName,
+    $databasePassword,
+    $databaseDatababseName
 );
 
 if ($connection->connect_errno){

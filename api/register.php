@@ -39,10 +39,23 @@ if (!$connection){
 }
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-echo $password;
 
 $sql = "INSERT INTO users VALUES ('', '$email', '$hashed_password')";
 
-$result = $connection -> query($sql);
-
-echo $result;
+try {
+    $result = $connection -> query($sql);
+    echo $connection->insert_id;
+    session_start();
+    $_SESSION['email'] = $email;
+    echo "200";   
+} catch (mysqli_sql_exception $e) {
+    $status_code = $e->getCode();
+    
+    if ($status_code == 1062){
+        echo "Email already registered";
+        return;
+    } else {
+        echo "Error occurred";
+        return;
+    }
+}    

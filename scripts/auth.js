@@ -5,12 +5,14 @@ const email = document.getElementById("email")
 const password = document.getElementById("password")
 const verifyPassword = document.getElementById("verify-password")
 const error = document.getElementById("error")
+const signoutBtn = document.getElementById("signout")
 
 // hard-coded user detail for testing demo purposes.
 localStorage.setItem("user@mail.com", "user123")
 
 const REGISTER_API = "api/register.php"
 const LOGIN_API = "api/login.php"
+const LOGOUT_API = "api/logout.php"
 
 const authenticate = (data) => { 
     fetch(LOGIN_API, {
@@ -19,11 +21,15 @@ const authenticate = (data) => {
             'Content-Type' : 'application/json'
         },
         body : data
-    }).then(data => {
-        console.log("successful")
+    }).then(response => {
+        response.text().then(data => {
+            if(data != "200") {
+                onError(data)
+                return
+            }
+            window.location = "/shop.php"
+        })
     })
-    
-
 }
 
 const register = (data) => {
@@ -34,9 +40,16 @@ const register = (data) => {
             'Content-Type' : 'application/json'
         },
         body : data
-    }).then(data => {
-        console.log("successful")
-        // window.location = "/shop.html"
+    }).then(response => {
+        response.text().then(data => {
+            // alert(data)
+            if(data != "200") {
+                onError(data)
+                return
+            }
+            // window.location = "/shop.php"
+        }
+        )
     })
 }
 
@@ -51,6 +64,17 @@ const onError = (message, form) => {
         form.reset()
     }
     error.style.display = "inline"
+}
+
+const onLogout = () => {
+    fetch(LOGOUT_API, {
+        method : "POST",
+        headers : {
+            'Content-Type' : 'application/json'
+        }
+    }).then(data => {
+        window.location = "/"
+    })  
 }
 
 if (loginForm) {
@@ -90,4 +114,10 @@ if (registerForm) {
         }
     })
 
+}
+
+if (signoutBtn) {
+    signoutBtn.addEventListener("click", (event) => {
+        onLogout()
+    })
 }

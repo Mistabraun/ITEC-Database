@@ -32,8 +32,8 @@
                 ],
                 "creation": 1742736681,
                 "images": [
-                    "assets/products/men/accessories/NEW%20ARRIVAL.jpg",
-                    "assets/products/men/accessories/NEW%20ARRIVAL(1).jpg"
+                    "assets\/products\/men\/accessories\/NEW%20ARRIVAL.jpg",
+                    "assets\/products\/men\/accessories\/NEW%20ARRIVAL(1).jpg"
                 ]
             },
             {
@@ -218,8 +218,8 @@
                 ],
                 "creation": 1735845411,
                 "images": [
-                    "assets/products/men/tops/Early%202024.jpg",
-                    "assets/products/men/tops/Early%202024%20(1).jpg"
+                    "assets\/products\/men\/tops\/Early%202024.jpg",
+                    "assets\/products\/men\/tops\/Early%202024%20(1).jpg"
                 ]
             },
             {
@@ -235,8 +235,8 @@
                 ],
                 "creation": 1747889152,
                 "images": [
-                    "assets/products/men/tops/Stretch%20pique%20T-shirt.jpg",
-                    "assets/products/men/tops/Stretch%20pique%20T-shirt%20(3).jpg"
+                    "assets\/products\/men\/tops\/Stretch%20pique%20T-shirt.jpg",
+                    "assets\/products\/men\/tops\/Stretch%20pique%20T-shirt%20(3).jpg"
                 ]
             },
             {
@@ -326,6 +326,24 @@
                 "images": [
                     "assets\/products\/men\/tops\/Screenshot_20250621-122151.jpg",
                     "assets\/products\/men\/tops\/Screenshot_20250621-122130.jpg"
+                ]
+            },
+            {
+                "name": "blabla",
+                "price": 1600,
+                "gender": "men",
+                "type": "Tops",
+                "sold": 84,
+                "stock": 2,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium"
+                ],
+                "creation": 1738167942,
+                "images": [
+                    "assets\/products\/men\/tops\/Screenshot 2025-06-12 211034.png",
+                    "assets\/products\/men\/tops\/Screenshot 2025-06-12 211344.png"
                 ]
             }
         ]
@@ -542,6 +560,25 @@
                 "images": [
                     "assets\/products\/women\/bottoms\/mini skirt 1 (1).jpg",
                     "assets\/products\/women\/bottoms\/mini skirt 1 (2).jpg"
+                ]
+            },
+            {
+                "name": "Arliesienne",
+                "price": 2600,
+                "gender": "women",
+                "type": "Bottoms",
+                "sold": 80,
+                "stock": 19,
+                "sizes": [
+                    "Extra Small",
+                    "Small",
+                    "Medium",
+                    "Large"
+                ],
+                "creation": 1762942258,
+                "images": [
+                    "assets\/products\/women\/bottoms\/Screenshot 2025-06-12 211034.png",
+                    "assets\/products\/women\/bottoms\/Screenshot 2025-06-12 211344.png"
                 ]
             }
         ],

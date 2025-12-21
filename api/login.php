@@ -24,15 +24,28 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $connection = require("database.php");
-$sql = "SELECT * FROM users WHERE email = '$email' AND password = '$hashed_password'";
+$sql = "SELECT password FROM users WHERE email = '$email'";
 
 $result = $connection -> query($sql);
 
-echo $password;
+$fetched = $result->fetch_assoc();
 
-if ($result->num_rows <= 0){
-    echo "User does not exist.";
+if (!$fetched){;
+    echo "Invalid credentials";
     return;
 }
 
-print_r($result);
+$hashed_password = $fetched['password'];
+
+if (password_verify($password, $hashed_password)) {
+    echo "200";
+    session_start();
+
+    $_SESSION['email'] = $email;
+    
+} else {
+    echo "Invalid credentials";
+    return;
+}
+
+return;

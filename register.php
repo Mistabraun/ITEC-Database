@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['email'])) {    
+    header("Location: shop.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,15 +35,16 @@
 
         <ul class="nav-links">
           <li class="nav-black">
-            <a href="/login.html"><img src="assets/logo/user.svg" alt="User" /></a>
+            <a href="/login.php"><img src="assets/logo/user.svg" alt="User" /></a>
           </li>
 
           <li class="nav-black">
-            <a href="/shop.html"><img src="assets/logo/shop.svg" alt="Shop" /></a>
+            <a href="/shop.php"><img src="assets/logo/shop.svg" alt="Shop" /></a>
           </li>
           <li>
             <button id="cart-view"><img src="assets/logo/cart-2.svg" alt="Cart" /></button>
           </li>
+           
         </ul>
       </nav>
 
@@ -52,12 +61,12 @@
 
         <ul class="sidebar-list">
           <!-- <li><a href="">NEW ARRIVALS</a></li> -->
-          <li><a href="shop.html?category=tops">TOPS</a></li>
-          <li><a href="shop.html?category=jackets">JACKETS</a></li>
-          <li><a href="shop.html?category=bottoms">BOTTOMS</a></li>
-          <li><a href="shop.html?category=dresses">DRESSES</a></li>
-          <li><a href="shop.html?category=accessories">ACCESSORIES</a></li>
-          <li><a href="shop.html?category=footwear">FOOTWEAR</a></li>
+          <li><a href="shop.php?category=tops">TOPS</a></li>
+          <li><a href="shop.php?category=jackets">JACKETS</a></li>
+          <li><a href="shop.php?category=bottoms">BOTTOMS</a></li>
+          <li><a href="shop.php?category=dresses">DRESSES</a></li>
+          <li><a href="shop.php?category=accessories">ACCESSORIES</a></li>
+          <li><a href="shop.php?category=footwear">FOOTWEAR</a></li>
           <li><a href="" class="last">VIEW ALL</a></li>
         </ul>
       </div>
@@ -97,7 +106,7 @@
     <main>
       <section class="login">
         <div class="form-main">
-          <h2 class="form-titlle zetta">ACCOUNT <br />LOGIN</h2>
+          <h2 class="form-titlle zetta">ACCOUNT <br />REGISTER</h2>
           <div class="form-header">
             <div class="login-alternative">
               <button class="exa">Google</button>
@@ -106,57 +115,56 @@
             <div class="or deca"><span>OR</span></div>
           </div>
 
-          <form action="" class="form-body" id="login-form" autocomplete="off">
+          <form action="api/register.php" method="post" class="form-body" id="register-form" autocomplete="off">
             <div class="form-input">
               <input class="exa" type="email" id="email" name="email" placeholder="EMAIL ADDRESS" />
-              <input class="exa" type="password" id="password" name="password" placeholder="PASSWORD" />
-              <span class="error" id="error">The password you’ve entered is incorrect.</span>
+              <input class="exa" type="password" id="password" name="password" min="8" max="16" placeholder="PASSWORD" />
+              <input class="exa" type="password" id="verify-password" name="verify-password" placeholder="VERIFY PASSWORD" />
+              <span class="error" id="error">The password you’ve entered does not match.</span>
               <a class="exa" href="" style="color: black; text-decoration: underline">Forgot your password?</a>
             </div>
             <button class="exa" type="submit">LOGIN</button>
           </form>
           <div class="form-footer exa">
-            <h6>
-              Don't have an account? <a href="register.html" style="color: rgba(0, 0, 0, 50%); text-decoration: underline">Sign up</a>
-            </h6>
+            <h6>Already have an account? <a href="login.php" style="color: rgba(0, 0, 0, 50%); text-decoration: underline">Sign in</a></h6>
           </div>
         </div>
-        <img src="assets/images/adele-shafiee-iFCccPqshcc-unsplash.jpg" alt="" />
+        <img src="assets/images/adele-shafiee-R10FvRFZ1zo-unsplash.jpg" alt="" />
       </section>
     </main>
+    <footer class="footer">
+      <ul class="footer-section">
+        <h1>ACMO</h1>
+        <li>Angeles, Janro S.</li>
+        <li>Ansuas, Arliesienne A.</li>
+        <li>Caudilla, Justine Carl C.</li>
+        <li>Mico, Vladimir L.</li>
+        <li>Odiongan, John Evan M.</li>
+      </ul>
+
+      <ul class="footer-section">
+        <h1>Information</h1>
+        <li><a href="http://bsit1-1-contacts.com" target="_blank">Contact Us</a></li>
+        <li><a href="http://bsit1-1-aboutus.com" target="_blank">About Us</a></li>
+        <li><a href="http://bsit1-1-faqs.com" target="_blank">FAQ's</a></li>
+        <li><a href="http://bsit1-1-paymentoption.com" target="_blank">Payment Option</a></li>
+      </ul>
+
+      <ul class="footer-section">
+        <li><a href="http://bsit1-1-return.com" target="_blank">Return &amp; Exchange</a></li>
+        <li><a href="http://bsit1-1-shipping-delivery.com" target="_blank">Shipping &amp; Delivery</a></li>
+        <li><a href="http://bsit1-1-size-guide.com" target="_blank">Size Guide</a></li>
+        <li><a href="http://bsit1-1-bulk-orders.com" target="_blank">Bulk Orders</a></li>
+      </ul>
+
+      <ul class="footer-section">
+        <li><a href="http://bsit1-1-privacy-policy.com" target="_blank">Privacy Policy</a></li>
+        <li><a href="http://bsit1-1-terms-of-services.com" target="_blank">Terms of Services</a></li>
+        <li><a href="http://bsit1-1-feedback.com" target="_blank">Feedback</a></li>
+        <li><a href="http://bsit1-1-information.com" target="_blank">Information</a></li>
+      </ul>
+    </footer>
   </body>
-  <footer class="footer">
-    <ul class="footer-section">
-      <h1>ACMO</h1>
-      <li>Angeles, Janro S.</li>
-      <li>Ansuas, Arliesienne A.</li>
-      <li>Caudilla, Justine Carl C.</li>
-      <li>Mico, Vladimir L.</li>
-      <li>Odiongan, John Evan M.</li>
-    </ul>
-
-    <ul class="footer-section">
-      <h1>Information</h1>
-      <li><a href="http://bsit1-1-contacts.com" target="_blank">Contact Us</a></li>
-      <li><a href="http://bsit1-1-aboutus.com" target="_blank">About Us</a></li>
-      <li><a href="http://bsit1-1-faqs.com" target="_blank">FAQ's</a></li>
-      <li><a href="http://bsit1-1-paymentoption.com" target="_blank">Payment Option</a></li>
-    </ul>
-
-    <ul class="footer-section">
-      <li><a href="http://bsit1-1-return.com" target="_blank">Return &amp; Exchange</a></li>
-      <li><a href="http://bsit1-1-shipping-delivery.com" target="_blank">Shipping &amp; Delivery</a></li>
-      <li><a href="http://bsit1-1-size-guide.com" target="_blank">Size Guide</a></li>
-      <li><a href="http://bsit1-1-bulk-orders.com" target="_blank">Bulk Orders</a></li>
-    </ul>
-
-    <ul class="footer-section">
-      <li><a href="http://bsit1-1-privacy-policy.com" target="_blank">Privacy Policy</a></li>
-      <li><a href="http://bsit1-1-terms-of-services.com" target="_blank">Terms of Services</a></li>
-      <li><a href="http://bsit1-1-feedback.com" target="_blank">Feedback</a></li>
-      <li><a href="http://bsit1-1-information.com" target="_blank">Information</a></li>
-    </ul>
-  </footer>
   <script src="scripts/app.js"></script>
   <script src="scripts/auth.js"></script>
 </html>
