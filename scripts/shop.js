@@ -44,6 +44,7 @@ function removeByValue(arr, value) {
 }
 
 function handleURLParams(productsJSON) {
+  console.log(productsJSON);
   let category = urlParams.get("category") || CATEGORY;
   let filters = {
     gender: ["men", "women"],
@@ -81,13 +82,13 @@ function handleURLParams(productsJSON) {
     } else {
       let hasStock = filters.stock[0] == "stock";
       categoryItems.forEach((value) => {
-        if(hasStock) {
-          if(value["stock"] > 0){
-            filtered.push(value)
+        if (hasStock) {
+          if (value["stock"] > 0) {
+            filtered.push(value);
           }
-        }else{
-          if(value["stock"] <= 0) {
-            filtered.push(value)
+        } else {
+          if (value["stock"] <= 0) {
+            filtered.push(value);
           }
         }
         // if ((hasStock && value["stock"] > 0) || value["stock"] <= 0) {
@@ -144,7 +145,6 @@ function handleURLParams(productsJSON) {
     display();
   }
 
-
   function onChecked(query, defaultValue) {
     let checked = [];
     document.querySelectorAll("#" + query).forEach(function (element) {
@@ -174,10 +174,7 @@ function handleURLParams(productsJSON) {
   onPriceChanged("min", 0, 0);
   onPriceChanged("max", 1, 10000000);
 
-
   filterItems();
 }
-
-
 
 loadProducts();

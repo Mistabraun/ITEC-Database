@@ -1,61 +1,64 @@
 <?php
 
-if($_SERVER['REQUEST_METHOD'] !== "POST"){
+header('Content-Type: application/json');
+
+if ($_SERVER['REQUEST_METHOD'] !== "POST") {
     echo "Invalid request type";
     return;
 }
 
-$json_data = file_get_contents("php://input");
-$data = json_decode($json_data);
+$rawData = file_get_contents("php://input");
+$data = json_decode($rawData, true);
 
-$email = $data->{"email"};
-$password = $data->{'password'};
+$email = $data["email"] ?? '';
+$password = $data["password"] ?? '';
 
 
-if ((strlen($email) <= 0)  || (strlen($password) <= 0 )){
-    echo "Invalid arguments";
+if ((strlen($email) <= 0)  || (strlen($password) <= 0)) {
+    echo json_encode(["success" => false, "message" => "Invalid arguments"]);
     return;
 }
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    echo "Not an email";
-    return; 
-}
-if (strlen($password) > 16 ){
-    echo "Password is too Strong";
-    return;
-}
-else if (strlen($password) < 8 ){
-    echo "Password is too Weak";
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(["success" => false, "message" => "Invalid email"]);
     return;
 }
 
 
-$connection = require("database.php");
-
-if (!$connection){
-    echo "Error";
+if (strlen($password) > 16) {
+    echo json_encode(["success" => false, "message" => "Password is too Strong"]);
+    return;
+} else if (strlen($password) < 8) {
+    echo json_encode(["success" => false, "message" => "Password is too Weak"]);
     return;
 }
+
+session_start();
+
+if (isset($_SESSION['email'])) {
+    echo json_encode(["success" => false, "message" => "Invalid request"]);
+    return;
+}
+
+require(__DIR__ . '/database.php');
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO users VALUES ('', '$email', '$hashed_password')";
 
-try {
-    $result = $connection -> query($sql);
-    echo $connection->insert_id;
-    session_start();
-    $_SESSION['email'] = $email;
-    echo "200";   
-} catch (mysqli_sql_exception $e) {
-    $status_code = $e->getCode();
-    
-    if ($status_code == 1062){
-        echo "Email already registered";
-        return;
-    } else {
-        echo "Error occurred";
-        return;
-    }
-}    
+$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+$stmt->execute([$email]);
+$result = $stmt->rowCount();
+
+if ($result > 0) {
+    echo json_encode(["success" => false, "message" => "Email already taken"]);
+    return;
+}
+
+$stmt = $pdo->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
+$stmt->execute([$email, $hashed_password]);
+$id = $pdo->lastInsertId();
+
+$_SESSION['email'] = $email;
+$_SESSION['id'] = $id;
+
+echo json_encode(["success" => true, "message" => "Success"]);

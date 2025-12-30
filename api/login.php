@@ -1,51 +1,56 @@
 <?php
+header('Content-Type: application/json');
 
-if($_SERVER['REQUEST_METHOD'] !== "POST"){
-    echo "Invalid request type";
+if ($_SERVER['REQUEST_METHOD'] !== "POST") {
+    echo json_encode(["success" => false, "message" => "Invalid request method"]);
     return;
 }
 
 
-$json_data = file_get_contents("php://input");
-$data = json_decode($json_data);
+$rawData = file_get_contents("php://input");
+$data = json_decode($rawData, true);
 
-$email = $data->{"email"};
-$password = $data->{'password'};
+$email = $data["email"] ?? '';
+$password = $data["password"] ?? '';
 
-
-if ((strlen($email) <= 0)  || (strlen($password) <= 0 )){
-    echo "Invalid arguments";
+if ((strlen($email) <= 0)  || (strlen($password) <= 0)) {
+    echo json_encode(["success" => false, "message" => "Invalid arguments"]);
     return;
 }
+
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "Invalid email";
+    echo json_encode(["success" => false, "message" => "Invalid email"]);
     return;
 }
 
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-$connection = require("database.php");
-$sql = "SELECT password FROM users WHERE email = '$email'";
+session_start();
 
-$result = $connection -> query($sql);
-
-$fetched = $result->fetch_assoc();
-
-if (!$fetched){;
-    echo "Invalid credentials";
+if (isset($_SESSION['email'])) {
+    echo json_encode(["success" => false, "message" => "Invalid request"]);
     return;
 }
 
-$hashed_password = $fetched['password'];
+require(__DIR__ . '/database.php');
 
-if (password_verify($password, $hashed_password)) {
-    echo "200";
-    session_start();
+$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+$stmt->execute([$email]);
+$user_data = $stmt->fetch();
 
-    $_SESSION['email'] = $email;
-    
-} else {
-    echo "Invalid credentials";
+if (!$user_data) {;
+    echo json_encode(["success" => false, "message" => "Invalid credentials"]);
     return;
 }
+
+$hashed_password = $user_data['password'];
+
+if (!password_verify($password, $hashed_password)) {
+    echo json_encode(["success" => false, "message" => "Invalid credentials"]);
+    return;
+}
+
+echo json_encode(["success" => true, "message" => "Successfully logged in."]);
+
+$_SESSION['email'] = $user_data['email'];
+$_SESSION['id'] = $user_data['id'];
 
 return;

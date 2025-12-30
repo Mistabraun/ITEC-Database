@@ -110,12 +110,14 @@ function carousel() {
   }, 5000);
 }
 
-const sidebarOpen = document.getElementById("sidebar-open");
-const sidebarClose = document.getElementById("sidebar-close");
+const sidebarOpen = document.querySelectorAll("#sidebar-open");
+const sidebarClose = document.querySelectorAll("#sidebar-close");
 const sidebarBg = document.getElementById("sidebar-bg");
 if (sidebarOpen) {
-  sidebarOpen.addEventListener("click", function () {
-    setActive(true);
+  sidebarOpen.forEach(function (element) {
+    element.addEventListener("click", function () {
+      setActive(true);
+    });
   });
 }
 
@@ -126,8 +128,10 @@ if (sidebarBg) {
 }
 
 if (sidebarClose) {
-  sidebarClose.addEventListener("click", function () {
-    setActive(false);
+  sidebarClose.forEach(function (element) {
+    element.addEventListener("click", function () {
+      setActive(false);
+    });
   });
 }
 

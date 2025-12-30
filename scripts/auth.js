@@ -1,123 +1,107 @@
-const loginForm = document.getElementById("login-form")
-const registerForm = document.getElementById("register-form")
+const loginForm = document.getElementById("login-form");
+const registerForm = document.getElementById("register-form");
 
-const email = document.getElementById("email")
-const password = document.getElementById("password")
-const verifyPassword = document.getElementById("verify-password")
-const error = document.getElementById("error")
-const signoutBtn = document.getElementById("signout")
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const verifyPassword = document.getElementById("verify-password");
+const error = document.getElementById("error");
+const signoutBtn = document.getElementById("signout");
 
 // hard-coded user detail for testing demo purposes.
-localStorage.setItem("user@mail.com", "user123")
+localStorage.setItem("user@mail.com", "user123");
 
-const REGISTER_API = "api/register.php"
-const LOGIN_API = "api/login.php"
-const LOGOUT_API = "api/logout.php"
+const REGISTER_API = "api/register.php";
+const LOGIN_API = "api/login.php";
+const LOGOUT_API = "api/logout.php";
+const SHOP_URL = "/shop.php";
 
-const authenticate = (data) => { 
-    fetch(LOGIN_API, {
-        method : "POST",
-        headers : {
-            'Content-Type' : 'application/json'
-        },
-        body : data
-    }).then(response => {
-        response.text().then(data => {
-            if(data != "200") {
-                onError(data)
-                return
-            }
-            window.location = "/shop.php"
-        })
-    })
+function apiRequest(apiUrl, form = null, method = "POST") {
+  let options = {
+    method: method,
+  };
+
+  if (form) {
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    options.body = JSON.stringify(data);
+  }
+
+  if (method == "POST") {
+    options.headers = {
+      "Content-Type": "application/json",
+    };
+  }
+
+  return fetch(apiUrl, options)
+    .then((response) => response.json())
+    .catch((error) => {
+      console.error("Error:", error);
+      throw error;
+    });
 }
 
-const register = (data) => {
-    // alert("dapat na tatawag to.") 
-    fetch(REGISTER_API, {
-        method: "POST",
-        headers: {
-            'Content-Type' : 'application/json'
-        },
-        body : data
-    }).then(response => {
-        response.text().then(data => {
-            // alert(data)
-            if(data != "200") {
-                onError(data)
-                return
-            }
-            // window.location = "/shop.php"
-        }
-        )
-    })
+function defaultResponse(response) {
+  password.value = "";
+  if (!response.success) {
+    onError(response.message);
+    return;
+  }
+
+  window.location = SHOP_URL;
 }
 
-const onError = (message, form) => { 
-    email.focus()
+const onError = (message, form) => {
+  email.focus();
 
-    if (message) { 
-        error.innerText = message
-    }
+  if (message) {
+    error.innerText = message;
+  }
 
-    if (form) { 
-        form.reset()
-    }
-    error.style.display = "inline"
-}
-
-const onLogout = () => {
-    fetch(LOGOUT_API, {
-        method : "POST",
-        headers : {
-            'Content-Type' : 'application/json'
-        }
-    }).then(data => {
-        window.location = "/"
-    })  
-}
+  if (form) {
+    form.reset();
+  }
+  error.style.display = "inline";
+};
 
 if (loginForm) {
+  loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-    loginForm.addEventListener("submit", (event) => {
-        event.preventDefault()
+    let passwordValue = password.value;
 
-        const formData = new FormData(loginForm);
+    if (passwordValue.length <= 0) {
+      onError("Invalid credentials");
+      return;
+    }
 
-        const dataObject = Object.fromEntries(formData.entries());
-        const jsonString = JSON.stringify(dataObject);
-
-        authenticate(jsonString)
-
-    })
-    
+    apiRequest(LOGIN_API, event.target).then(defaultResponse);
+  });
 }
 
 if (registerForm) {
+  registerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-    registerForm.addEventListener("submit", (event) => {
-        event.preventDefault()
-        
-        const formData = new FormData(registerForm);
-    
-        const dataObject = Object.fromEntries(formData.entries());
-        const jsonString = JSON.stringify(dataObject);
+    let passwordValue = password.value;
 
-        let passwordValue = password.value
+    if (passwordValue !== verifyPassword.value) {
+      onError("The password you’ve entered does not match.");
+      return;
+    } else if (passwordValue.length <= 0) {
+      onError("The password must be at least 8 characters long.");
+      return;
+    }
 
-        if (passwordValue !== verifyPassword.value) {
-            onError("The password you’ve entered does not match.")
-        } else if (passwordValue.length <= 0) {
-            onError("The password must be at least 8 characters long.")
-        } else { 
-            register(jsonString)
-        }
-    })
-
+    verifyPassword.value = "";
+    apiRequest(REGISTER_API, event.target).then(defaultResponse);
+  });
 }
 
 if (signoutBtn) {
-    signoutBtn.addEventListener("click", (event) => {
-        onLogout()
-    })
+  signoutBtn.addEventListener("click", (event) => {
+    apiRequest(LOGOUT_API, null).then((resnpose) => {
+      window.location = "/";
+    });
+  });
 }

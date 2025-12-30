@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles/style.css" />
   <link rel="stylesheet" href="styles/shop.css" />
-  <link rel="stylesheet" href="styles/product.css">
+  <!-- <link rel="stylesheet" href="styles/janro.css"> -->
   <title>Document</title>
 </head>
 
@@ -107,42 +107,44 @@
     </div>
   </header>
 
-  <div class="container">
+  <main>
+    <div class="container">
 
-    <div class="images">
-      <img src=/f215749a9800a8864f2f779b9d40269f.png>
+      <div class="images">
+        <img src=/f215749a9800a8864f2f779b9d40269f.png>
+      </div>
+
+      <div class="details">
+        <h1>Product Title</h1>
+        <div class="price">Product Price</div>
+
+        <p>
+          Products description.Products description.Products description.Products description.Products description.Products description.Products description.
+        </p>
+
+        <div class="title">SIZE</div>
+        <div class="box">XL</div>
+        <div class="box">L</div>
+        <div class="box">M</div>
+        <div class="box">S</div>
+        <div class="box">XS</div>
+
+        <div class="title">COLOR</div>
+        <div class="box">White</div>
+        <div class="box">Black</div>
+        <div class="box">Red</div>
+        <div class="box">Blue</div>
+
+        <div class="title ">QUANTITY</div>
+        <input type="number" id="quantity" value="1" min="1">
+
+        <button class="buy">Buy</button>
+
+        <button class="add-cart">Add to cart</button>
+      </div>
+
     </div>
-
-    <div class="details">
-      <h1>Product Title</h1>
-      <div class="price">Product Price</div>
-
-      <p>
-        Products description.Products description.Products description.Products description.Products description.Products description.Products description.
-      </p>
-
-      <div class="title">SIZE</div>
-      <div class="box">XL</div>
-      <div class="box">L</div>
-      <div class="box">M</div>
-      <div class="box">S</div>
-      <div class="box">XS</div>
-
-      <div class="title">COLOR</div>
-      <div class="box">White</div>
-      <div class="box">Black</div>
-      <div class="box">Red</div>
-      <div class="box">Blue</div>
-
-      <div class="title ">QUANTITY</div>
-      <input type="number" id="quantity" value="1" min="1">
-
-      <button class="buy">Buy</button>
-
-      <button class="add-cart">Add to cart</button>
-    </div>
-
-  </div>
+  </main>
 
 
   <footer class="footer" style="margin-top: 3rem">
