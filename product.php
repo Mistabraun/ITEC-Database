@@ -42,6 +42,13 @@
           <button id="cart-view"><img src="assets/logo/cart-2.svg" alt="Cart" /></button>
         </li>
 
+        <?php
+        session_start();
+        if (isset($_SESSION['email'])) {
+          echo '<li><button id="signout"><img src="assets/logo/login-svgrepo-com.svg" alt="Sign out" /></button></li>';
+        }
+        ?>
+
       </ul>
     </nav>
 
@@ -101,8 +108,8 @@
       </div>
     </div>
   </header>
-  <main>
-
+  <main class="main-container">
+    <a href="/shop.php" class="more deca"> Continue Shopping </a>
     <div class="container">
       <div class="image-container">
         <img id="product-image-1" src="assets/products/men/tops/beige winter coat (1).jpg">
@@ -115,7 +122,7 @@
         <h1 id="product-title">Product Title</h1>
         <div id="product-price" class="price">Product Price</div>
 
-        <p>Please choose the desired size from the available options, and indicate the quantity you'd like to purchase. Ensure you select the correct size and quantity before proceeding to checkout.</p>
+        <p class="deca">Please choose the desired size from the available options, and indicate the quantity you'd like to purchase. Ensure you select the correct size and quantity before proceeding to checkout.</p>
 
         <div class="form-content">
           <h4 class="title">SIZE</h4>
@@ -181,6 +188,7 @@
   </footer>
 </body>
 <script src="scripts/app.js"></script>
+<script src="scripts/cart.js"></script>
 <script src="scripts/shop.js"></script>
 <script src="scripts/auth.js"></script>
 <script src="scripts/product.js"></script>

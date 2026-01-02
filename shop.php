@@ -31,11 +31,11 @@
 
       <ul class="nav-links">
         <li class="nav-black">
-          <a href="/login.html"><img src="assets/logo/user.svg" alt="User" /></a>
+          <a href="/login.php"><img src="assets/logo/user.svg" alt="User" /></a>
         </li>
 
         <li class="nav-black">
-          <a href="/shop.html"><img src="assets/logo/shop.svg" alt="Shop" /></a>
+          <a href="/shop.php"><img src="assets/logo/shop.svg" alt="Shop" /></a>
         </li>
         <li>
           <button id="cart-view"><img src="assets/logo/cart-2.svg" alt="Cart" /></button>
@@ -296,6 +296,7 @@
     </ul>
   </footer>
 </body>
+<script src="scripts/cart.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/shop.js"></script>
 <script src="scripts/auth.js"></script>

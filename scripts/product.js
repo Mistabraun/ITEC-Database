@@ -25,15 +25,11 @@ function getData() {
 }
 
 
-function addDataToCart(response) {
-    console.log(response)
-}
-
 function initialize(response) {
     const data = response.message
     productTitle.innerText = data.name
     productPrice.innerText = (data.price).toLocaleString(
-        'en-US',
+        'en-PH',
         {
             style: 'currency',
             currency: 'PHP',
@@ -88,15 +84,16 @@ function initialize(response) {
         const id = url.get("id")
         formData.append("id", id)
 
-        sidebarcart.classList.add("active");
-        setBlackBackground(true);
         fetch(CHECKOUT_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(Object.fromEntries(formData.entries()))
         })
             .then((response) => response.json())
-            .then(addDataToCart)
+            .then(update_cart).then(() => {
+                sidebarcart.classList.add("active");
+                setBlackBackground(true);
+            })
             .finally(response => {
                 formData.delete("id")
                 setTimeout(() => {
@@ -115,6 +112,6 @@ getData().then((response) => {
         initialize(response)
     } else {
         console.log(response.message)
-        // window.location = "/shop.php"
+        window.location = "/shop.php"
     }
 })

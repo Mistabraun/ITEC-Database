@@ -38,7 +38,7 @@ function initializeSidebar(id) {
 
   open.addEventListener("click", function () {
     sidebar.classList.add("active");
-    setBlackBackground(true);
+    setBlackBackground(true)
   });
 
   function onClose() {

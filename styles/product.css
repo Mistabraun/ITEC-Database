@@ -9,6 +9,19 @@
   padding: 6rem 2vw 2vw;
 } */
 
+.main-container {
+  padding: 6rem 2vw 2vw;
+  margin: 0 7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.more {
+  color: black;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+}
+
 .container {
   display: flex;
   gap: 1px;
@@ -16,8 +29,6 @@
   justify-items: end;
 
   /* margin-right: 40px; */
-  padding: 6rem 2vw 2vw;
-  margin: 0 7rem;
 }
 
 .image-container {
