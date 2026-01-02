@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] !== "GET") {
 }
 
 $category = $_GET["category"] ?? '';
-$stock = $_GET["stock"] ?? null;
+$stock = $_GET["stock"] ?? true;
 $gender = $_GET["gender"] ?? null;
 $minimum = $_GET["minimum"] ?? null;
 $maximum = $_GET["maximum"] ?? null;

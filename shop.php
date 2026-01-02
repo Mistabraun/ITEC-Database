@@ -31,11 +31,11 @@
 
       <ul class="nav-links">
         <li class="nav-black">
-          <a href="/login.php"><img src="assets/logo/user.svg" alt="User" /></a>
+          <a href="/login.html"><img src="assets/logo/user.svg" alt="User" /></a>
         </li>
 
         <li class="nav-black">
-          <a href="/shop.php"><img src="assets/logo/shop.svg" alt="Shop" /></a>
+          <a href="/shop.html"><img src="assets/logo/shop.svg" alt="Shop" /></a>
         </li>
         <li>
           <button id="cart-view"><img src="assets/logo/cart-2.svg" alt="Cart" /></button>
@@ -64,12 +64,12 @@
 
       <ul class="sidebar-list">
         <!-- <li><a href="">NEW ARRIVALS</a></li> -->
-        <li><a href="shop.php?category=tops">TOPS</a></li>
-        <li><a href="shop.php?category=jackets">JACKETS</a></li>
-        <li><a href="shop.php?category=bottoms">BOTTOMS</a></li>
-        <li><a href="shop.php?category=dresses">DRESSES</a></li>
-        <li><a href="shop.php?category=accessories">ACCESSORIES</a></li>
-        <li><a href="shop.php?category=footwear">FOOTWEAR</a></li>
+        <li><a href="shop.html?category=tops">TOPS</a></li>
+        <li><a href="shop.html?category=jackets">JACKETS</a></li>
+        <li><a href="shop.html?category=bottoms">BOTTOMS</a></li>
+        <li><a href="shop.html?category=dresses">DRESSES</a></li>
+        <li><a href="shop.html?category=accessories">ACCESSORIES</a></li>
+        <li><a href="shop.html?category=footwear">FOOTWEAR</a></li>
         <li><a href="" class="last">VIEW ALL</a></li>
       </ul>
     </div>
@@ -116,12 +116,13 @@
         <ul class="filter-group">
           <h4>AVAILABILITY</h4>
           <li>
-            <input type="checkbox" id="stock" name="with-stock" value="stock" />
-            <label for="with-stock">In Stock</label>
+            <input type="radio" id="stock" name="stock" value="true" checked />
+
+            <label for="stock">In Stock</label>
           </li>
           <li>
-            <input type="checkbox" id="stock" name="out-of-stock" value="out-of-stock" />
-            <label for="out-of-stock">Out of Stock</label>
+            <input type="radio" id="outofstock" name="stock" value="false" />
+            <label for="outofstock">Out of Stock</label>
           </li>
         </ul>
         <hr />
@@ -172,9 +173,9 @@
         </ul>
       </div>
       <div class="products">
-        <div class="products-header">
+        <!-- <div class="products-header">
           <div class="search-header">
-            <button class="mobile-filter" id="sidebar-open">
+            <button class="mobile-filter" id="side-bar-open">
               <img src="/assets/logo/filter-6551.svg" alt="" />
               <span>Filter</span>
             </button>
@@ -200,7 +201,7 @@
               <button>Price descendng</button>
             </li>
           </ul>
-        </div>
+        </div> -->
         <div class="products-body" id="products-body">
           <a href="" class="card">
             <img class="card-image" src="assets/products/french flair set.jpg" alt="" />

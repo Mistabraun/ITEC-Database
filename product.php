@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles/style.css" />
   <link rel="stylesheet" href="styles/shop.css" />
-  <!-- <link rel="stylesheet" href="styles/janro.css"> -->
+  <link rel="stylesheet" href="styles/product.css">
   <title>Document</title>
 </head>
 
@@ -41,12 +41,7 @@
         <li>
           <button id="cart-view"><img src="assets/logo/cart-2.svg" alt="Cart" /></button>
         </li>
-        <?php
-        session_start();
-        if (isset($_SESSION['email'])) {
-          echo '<li><button id="signout"><img src="assets/logo/login-svgrepo-com.svg" alt="Sign out" /></button></li>';
-        }
-        ?>
+
       </ul>
     </nav>
 
@@ -102,48 +97,53 @@
           <span>₱100.00</span>
         </div>
         <span class="description deca">Shipping and discount codes are calculated at checkout.</span>
-        <button class="checkout deca">Check out</button>
+        <button class="checkout deca" onclick="document.location='checkout.html'">Check out</button>
       </div>
     </div>
   </header>
-
   <main>
+
     <div class="container">
+      <div class="image-container">
+        <img id="product-image-1" src="assets/products/men/tops/beige winter coat (1).jpg">
 
-      <div class="images">
-        <img src=/f215749a9800a8864f2f779b9d40269f.png>
       </div>
-
-      <div class="details">
-        <h1>Product Title</h1>
-        <div class="price">Product Price</div>
-
-        <p>
-          Products description.Products description.Products description.Products description.Products description.Products description.Products description.
-        </p>
-
-        <div class="title">SIZE</div>
-        <div class="box">XL</div>
-        <div class="box">L</div>
-        <div class="box">M</div>
-        <div class="box">S</div>
-        <div class="box">XS</div>
-
-        <div class="title">COLOR</div>
-        <div class="box">White</div>
-        <div class="box">Black</div>
-        <div class="box">Red</div>
-        <div class="box">Blue</div>
-
-        <div class="title ">QUANTITY</div>
-        <input type="number" id="quantity" value="1" min="1">
-
-        <button class="buy">Buy</button>
-
-        <button class="add-cart">Add to cart</button>
+      <div class="image-container">
+        <img id="product-image-2" src="assets/products/men/tops/Early 2024 (1).jpg">
       </div>
+      <form class=" details" id="add-to-cart">
+        <h1 id="product-title">Product Title</h1>
+        <div id="product-price" class="price">Product Price</div>
 
+        <p>Please choose the desired size from the available options, and indicate the quantity you'd like to purchase. Ensure you select the correct size and quantity before proceeding to checkout.</p>
+
+        <div class="form-content">
+          <h4 class="title">SIZE</h4>
+          <div class="form-input" id="size-selection">
+            <input type="radio" id="Extra Small" name="size" value="Extra Small" class="box" checked>
+            <label for="Extra Small" class="box">Extra Small</label>
+            <input type="radio" id="Small" name="size" value="Small" class=" box">
+            <label for="Small" class="box">Small</label>
+            <input type="radio" id="Meidum" name="size" value="Meidum" class=" box">
+            <label for="Meidum" class="box">Medium</label>
+            <input type="radio" id="Large" name="size" value="Large" class="box">
+            <label for="Large" class="box">Large</label>
+
+          </div>
+        </div>
+        <div class="form-content">
+          <div class="title ">QUANTITY</div>
+          <input type="number" id="quantity" name="quantity" value="1" min="1">
+        </div>
+
+        <div class="lower-button">
+          <!-- <button class="buy" onclick="window.location.href='checkout.html'">Buy</button> -->
+
+          <button class="add-cart">Add to cart</button>
+        </div>
     </div>
+    </form>
+
   </main>
 
 
@@ -183,5 +183,6 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/shop.js"></script>
 <script src="scripts/auth.js"></script>
+<script src="scripts/product.js"></script>
 
 </html>

@@ -26,12 +26,14 @@ function setBlackBackground(active) {
 // Todo : Gawin lahat to sa magiging sidebar.
 function initializeSidebar(id) {
   let sidebar = document.getElementById(id);
+  console.log(sidebar)
   if (!sidebar) {
     console.log(id, " sidebbar doesn't exist");
     return;
   }
 
   let open = document.getElementById(sidebar.getAttribute("open"));
+  console.log(sidebar.getAttribute("open"))
   let close = document.getElementById(sidebar.getAttribute("close"));
 
   open.addEventListener("click", function () {
@@ -186,6 +188,6 @@ document.addEventListener("scroll", debounce(storeScroll));
 
 // Update scroll position for first time
 storeScroll();
+initializeSidebar("sidebar-cart");
 initializeSidebar("side-bar-filter");
 carousel();
-initializeSidebar("sidebar-cart");

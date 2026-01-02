@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/shop.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="wrapper">
+            <!-- <div class="spinner"></div> -->
+            <h1 class="zetta">LOADING</h1>
+        </div>
+    </div>
+
+    <div class="black-background" id="black-background"></div>
+
+    <header>
+        <nav id="navigation" color="white">
+            <div class="nav-menu nav-black">
+                <button class="nav-button" id="sidebar-open">
+                    <img src="assets/logo/menu.svg" alt="" style="color: wheat" />
+                </button>
+            </div>
+
+            <h1 class="nav-title nav-black zetta"><a href="/">ACMO</a></h1>
+
+            <ul class="nav-links">
+                <li class="nav-black">
+                    <a href="/login.html"><img src="assets/logo/user.svg" alt="User" /></a>
+                </li>
+
+                <li class="nav-black">
+                    <a href="/shop.html"><img src="assets/logo/shop.svg" alt="Shop" /></a>
+                </li>
+                <li>
+                    <button id="cart-view"><img src="assets/logo/cart-2.svg" alt="Cart" /></button>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-bg" id="sidebar-bg"></div>
+
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <button id="sidebar-close"><img src="assets/logo/exit.svg" alt="" /></button>
+                <div class="search-wrapper">
+                    <input class="search" type="text" placeholder="SEARCH" />
+                    <button>
+                        <img src="assets/logo/search.svg" alt="" />
+                    </button>
+                </div>
+            </div>
+
+            <ul class="sidebar-list">
+                <!-- <li><a href="">NEW ARRIVALS</a></li> -->
+                <li><a href="shop.html?category=tops">TOPS</a></li>
+                <li><a href="shop.html?category=jackets">JACKETS</a></li>
+                <li><a href="shop.html?category=bottoms">BOTTOMS</a></li>
+                <li><a href="shop.html?category=dresses">DRESSES</a></li>
+                <li><a href="shop.html?category=accessories">ACCESSORIES</a></li>
+                <li><a href="shop.html?category=footwear">FOOTWEAR</a></li>
+                <li><a href="" class="last">VIEW ALL</a></li>
+            </ul>
+        </div>
+        <div class="sidebar" id="sidebar-cart" open="cart-view" close="sidebar-cart-close" target="right">
+            <div class="sidebar-header">
+                <h2>CART</h2>
+                <button id="sidebar-cart-close"><img src="assets/logo/exit.svg" alt="" /></button>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="cart-item">
+                    <div class="cart-header">
+                        <h6 class="exa">Graphic Cropped Shirt</h6>
+                        <button class="close"><img src="assets/logo/exit.svg" alt="" /></button>
+                    </div>
+                    <div class="cart-body">
+                        <div class="cart-count">
+                            <button class="cart-button">-</button>
+                            <span class="cart-count exa">1</span>
+                            <button class="cart-button">+</button>
+                        </div>
+                        <span class="price exa" id="cart-price">₱549.00</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="header deca">
+                    <h4 class="exa">TOTAL</h4>
+                    <span>₱100.00</span>
+                </div>
+                <span class="description deca">Shipping and discount codes are calculated at checkout.</span>
+                <button class="checkout deca" onclick="document.location='checkout.html'">Check out</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-wrapper">
+            <div class="filters" id="side-bar-filter" open="side-bar-open" close="side-bar-close">
+                <div class="exit">
+                    <button id="side-bar-close"><img src="assets/logo/exit.svg" alt="" /></button>
+                    <h1 class="deca">FILTERS</h1>
+                </div>
+                <ul class="filter-group">
+                    <h4>AVAILABILITY</h4>
+                    <li>
+                        <input type="checkbox" id="stock" name="with-stock" value="stock" />
+                        <label for="with-stock">In Stock</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="stock" name="out-of-stock" value="out-of-stock" />
+                        <label for="out-of-stock">Out of Stock</label>
+                    </li>
+                </ul>
+                <hr />
+                <ul class="filter-group">
+                    <h4>GENDER</h4>
+                    <li>
+                        <input type="checkbox" id="gender" name="men" value="men" />
+                        <label for="men">Men</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="gender" name="women" value="women" />
+                        <label for="women">Women</label>
+                    </li>
+                </ul>
+                <hr />
+                <ul class="filter-group">
+                    <h4>PRICE</h4>
+                    <div class="filter-price">
+                        <li>
+                            <label for="min">Minimum</label>
+                            <input type="number" id="min" name="min" />
+                        </li>
+                        <li>
+                            <label for="max">Maximum</label>
+                            <input type="number" id="max" name="max" />
+                        </li>
+                    </div>
+                </ul>
+                <hr />
+                <ul class="filter-group">
+                    <h4>SIZE</h4>
+                    <li>
+                        <input type="checkbox" id="sizes" name="extra-small" value="Extra Small" />
+                        <label for="extra-small">Extra Small</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="sizes" name="small" value="Small" />
+                        <label for="small">Small</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="sizes" name="medium" value="Medium" />
+                        <label for="medium">Medium</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="sizes" name="large" value="Large" />
+                        <label for="large">Large</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="products">
+                <div class="products-header">
+                    <div class="search-header">
+                        <button class="mobile-filter" id="side-bar-open">
+                            <img src="/assets/logo/filter-6551.svg" alt="" />
+                            <span>Filter</span>
+                        </button>
+                        <div class="search-wrapper shop">
+                            <input type="text" class="search transparent" id="search" name="search" placeholder="Search" />
+                            <button class="search-button">
+                                <img src="assets/logo/search.svg" alt="" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <ul class="sorts">
+                        <li>
+                            <button>New</button>
+                        </li>
+                        <li>
+                            <button>Best selling</button>
+                        </li>
+                        <li>
+                            <button>Price ascending</button>
+                        </li>
+                        <li>
+                            <button>Price descendng</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="products-body" id="products-body">
+                    <a href="janro.html" class="card">
+                        <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
+                        <div class="card-description">
+                            <span class="deca">Blue T-Shirt with striped collar </span>
+                            <h4 class="peta">₱1,299.00</h4>
+                        </div>
+                    </a>
+                    <a href="janro.html" class="card">
+                        <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
+                        <div class="card-description">
+                            <span class="deca">Clothing Name</span>
+                            <h4 class="peta">₱1,299.00</h4>
+                        </div>
+                    </a>
+                    <a href="janro.html" class="card">
+                        <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
+                        <div class="card-description">
+                            <span class="deca">Clothing Name</span>
+                            <h4 class="peta">₱1,299.00</h4>
+                        </div>
+                    </a>
+                    <a href="janro.html" class="card">
+                        <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
+                        <div class="card-description">
+                            <span class="deca">Clothing Name</span>
+                            <h4 class="peta">₱1,299.00</h4>
+                        </div>
+                    </a>
+                    <a href="janro.html" class="card">
+                        <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
+                        <div class="card-description">
+                            <span class="deca">Clothing Name</span>
+                            <h4 class="peta">₱1,299.00</h4>
+                        </div>
+                    </a>
+                    <a href="janro.html" class="card">
+                        <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
+                        <div class="card-description">
+                            <span class="deca">Clothing Name</span>
+                            <h4 class="peta">₱1,299.00</h4>
+                        </div>
+                    </a>
+                    <a href="janro.html" class="card">
+                        <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
+                        <div class="card-description">
+                            <span class="deca">Clothing Name</span>
+                            <h4 class="peta">₱1,299.00</h4>
+                        </div>
+                    </a>
+                    <a href="janro.html" class="card">
+                        <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
+                        <div class="card-description">
+                            <span class="deca">Clothing Name</span>
+                            <h4 class="peta">₱1,299.00</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer" style="margin-top: 3rem">
+        <ul class="footer-section">
+            <h1>ACMO</h1>
+            <li>Angeles, Janro S.</li>
+            <li>Ansuas, Arliesienne A.</li>
+            <li>Caudilla, Justine Carl C.</li>
+            <li>Mico, Vladimir L.</li>
+            <li>Odiongan, John Evan M.</li>
+        </ul>
+
+        <ul class="footer-section">
+            <h1>Information</h1>
+            <li><a href="http://bsit1-1-contacts.com" target="_blank">Contact Us</a></li>
+            <li><a href="http://bsit1-1-aboutus.com" target="_blank">About Us</a></li>
+            <li><a href="http://bsit1-1-faqs.com" target="_blank">FAQ's</a></li>
+            <li><a href="http://bsit1-1-paymentoption.com" target="_blank">Payment Option</a></li>
+        </ul>
+
+        <ul class="footer-section">
+            <li><a href="http://bsit1-1-return.com" target="_blank">Return &amp; Exchange</a></li>
+            <li><a href="http://bsit1-1-shipping-delivery.com" target="_blank">Shipping &amp; Delivery</a></li>
+            <li><a href="http://bsit1-1-size-guide.com" target="_blank">Size Guide</a></li>
+            <li><a href="http://bsit1-1-bulk-orders.com" target="_blank">Bulk Orders</a></li>
+        </ul>
+
+        <ul class="footer-section">
+            <li><a href="http://bsit1-1-privacy-policy.com" target="_blank">Privacy Policy</a></li>
+            <li><a href="http://bsit1-1-terms-of-services.com" target="_blank">Terms of Services</a></li>
+            <li><a href="http://bsit1-1-feedback.com" target="_blank">Feedback</a></li>
+            <li><a href="http://bsit1-1-information.com" target="_blank">Information</a></li>
+        </ul>
+    </footer>
+</body>
+<script src="scripts/app.js"></script>
+<!-- <script src="scripts/shop.js"></script> -->
+<script src="scripts/checkout.js"></script>
+
+</html>

@@ -46,6 +46,10 @@ span {
   /* font-weight: 100; */
 }
 
+.filter-group input[type="radio"] {
+  /* display: none; */
+}
+
 .search-wrapper.shop {
   width: 20rem;
 }
@@ -94,7 +98,7 @@ span {
   grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
   /* grid-template-columns: repeat(auto-fit, calc(25% - 0.8rem)); */
   /* justify-content: center; */
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .card-image {
@@ -104,7 +108,14 @@ span {
   height: 400px;
   width: 100%;
   object-fit: cover;
+
+  transition: opacity 0.3s, visibility 0.3s;
   /* background-size: cover; */
+  opacity: 1;
+}
+
+.card-image.fade-out {
+  opacity: 0;
 }
 
 .card {
@@ -128,7 +139,7 @@ span {
 }
 
 .mobile-filter {
-  display: flex;
+  display: none;
 
   justify-content: center;
   align-items: center;
