@@ -9,10 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] !== "GET") {
 
 $category = $_GET["category"] ?? '';
 $stock = $_GET["stock"] ?? true;
-$gender = $_GET["gender"] ?? null;
+$gender = $_GET["gender"] ?? "";
 $minimum = $_GET["minimum"] ?? null;
 $maximum = $_GET["maximum"] ?? null;
-$sizes = $_GET["size"] ?? ["Extra Small", "Small", "Medium", "Large"];
+$sizes = $_GET["sizes"] ?? ["Extra Small", "Small", "Medium", "Large"];
 
 if (empty($category)) {
     echo json_encode([]);
@@ -32,9 +32,10 @@ if (!empty($stock)) {
     }
 }
 
-if (!empty($gender) && ($gender == "Men" || $gender == "Women")) {
-    $sql .= " AND gender = ?";
-    $params[] = $gender;
+if (!empty($gender)) {
+    $placeholders = implode(',', array_fill(0, count($gender), '?'));
+    $sql .= " AND gender IN ($placeholders)";
+    $params = array_merge($params, $gender);
 }
 
 if (!empty($minimum) && !empty($maximum)) {
@@ -46,11 +47,16 @@ if (!empty($minimum) && !empty($maximum)) {
     $params[] = $minimum;
 } else if (!empty($maximum)) {
     $sql .= " AND price <= ?";
-    $params[] = $minimum;
+    $params[] = $maximum;
 }
 
+
 if (!empty($sizes)) {
-    $sql .= " AND JSON_CONTAINS(sizes, " . "'\"" . implode("\",\"", $sizes) . "\"'" . ")";
+    $sizeConditions = [];
+    foreach ($sizes as $size) {
+        $sizeConditions[] = "JSON_CONTAINS(sizes, '\"$size\"')";
+    }
+    $sql .= " AND (" . implode(" OR ", $sizeConditions) . ")";
 }
 
 $stmt = $pdo->prepare($sql);

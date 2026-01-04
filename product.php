@@ -101,10 +101,10 @@
       <div class="sidebar-footer">
         <div class="header deca">
           <h4 class="exa">TOTAL</h4>
-          <span>₱100.00</span>
+          <span id="cart-total">₱0</span>
         </div>
         <span class="description deca">Shipping and discount codes are calculated at checkout.</span>
-        <button class="checkout deca" onclick="document.location='checkout.html'">Check out</button>
+        <button class="checkout deca" onclick="document.location='checkout.php'">Check out</button>
       </div>
     </div>
   </header>

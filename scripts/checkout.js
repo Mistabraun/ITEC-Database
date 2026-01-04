@@ -1,74 +1,157 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const orders = document.querySelectorAll(".order");
-    const summaryContainer = document.querySelector(".summary");
+const displayContainer = document.querySelector(".o-display")
+const summaryContainer = document.querySelector(".summary-items");
+const checkoutForm = document.getElementById("checkoutform")
 
-    function parsePrice(text) {
-        return Number(text.replace(/[^\d.]/g, ""));
+const items = {}
+
+const CHECKOUT_URL = "api/checkout.php"
+
+function onCheckout(form) {
+    const formData = new FormData(form)
+    const data = Object.fromEntries(formData.entries());
+    data["orders"] = Object.keys(items)
+
+    const body = JSON.stringify(data)
+
+    fetch(CHECKOUT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: body
+    })
+        .then(response => response.json())
+        .then((response => {
+            console.log(response)
+        }))
+
+}
+
+function display_orders() {
+    displayContainer.innerHTML = ""
+
+    function calculate_total() {
+        let total = 0;
+
+        Object.values(items).forEach((price) => {
+            total += price;
+        })
+        return total
     }
 
-    function updateSummary() {
-        summaryContainer.innerHTML = "";
+    return get_orders()
+        .then((response) => {
+            response.forEach(product => {
+                items[product.id] = parseFloat(product.price)
 
-        orders.forEach(order => {
-            const name = order.querySelector("h3").textContent;
-            const priceText = order.querySelector(".price").textContent;
-            const qty = Number(order.querySelector(".r-display span").textContent);
+                const div = document.createElement("div")
+                div.className = "order"
+                div.innerHTML = `
+                <div class="l-display">
+                        <h3 id="name">${product.name}</h3>
+                        <p class="price">${format_price(product.price)}</p>
+                        <p class="quantity">x${product.quantity}</p>
+                    </div>
+                    <div class="r-display">
+                        <button type="button">-</button>
+                        <span>${product.quantity}</span>
+                        <button type="button">+</button>
+                    </div>
+                    `
 
-            if (qty === 0) return;
+                const minusBtn = div.querySelector("button:first-child");
+                const plusBtn = div.querySelector("button:last-child");
+                const qtySpan = div.querySelector(".r-display span");
 
-            const price = parsePrice(priceText);
-            const total = price * qty;
+                const summary = document.createElement("div");
+                summary.className = "s";
+                summary.innerHTML = `
+                        <div>${product.name} × ${product.quantity}</div>
+                        <div>${format_price(product.price)}</div>
+                    `;
 
-            const row = document.createElement("div");
-            row.className = "s";
-            row.innerHTML = `
-        <div>${name} × ${qty}</div>
-        <div>₱${total.toFixed(2)}</div>
-      `;
+                summaryContainer.append(summary)
 
-            summaryContainer.appendChild(row);
-        });
-    }
 
-    orders.forEach(order => {
-        const minusBtn = order.querySelector("button:first-child");
-        const plusBtn = order.querySelector("button:last-child");
-        const qtySpan = order.querySelector(".r-display span");
+                function updateTotal() {
+                    const totalElement = document.querySelector(".summary-total .total")
+                    const prices = document.querySelectorAll(".l-display .price")
 
-        minusBtn.addEventListener("click", () => {
-            let qty = Number(qtySpan.textContent);
-            if (qty > 0) {
-                qtySpan.textContent = qty - 1;
-                updateSummary();
-            }
-        });
+                    console.log(items)
+                    totalElement.innerHTML = format_price(calculate_total())
 
-        plusBtn.addEventListener("click", () => {
-            let qty = Number(qtySpan.textContent);
-            qtySpan.textContent = qty + 1;
-            updateSummary();
-        });
-    });
+                }
 
-    updateSummary();
-});
+                function updateSummary(response) {
+                    if (response.quantity <= 0) {
+                        summary.remove()
+                    }
+                    summary.innerHTML = `
+                        <div>${product.name} × ${response.quantity}</div>
+                        <div>${format_price(response.price)}</div>
+                    `;
 
-document.addEventListener("DOMContentLoaded", () => {
-    const cart = document.querySelector(".cart-count");
-    if (!cart) return;
+                }
 
-    const minusBtn = cart.querySelector(".cart-button:first-child");
-    const plusBtn = cart.querySelector(".cart-button:last-child");
-    const countSpan = cart.querySelector(".cart-count.exa");
+                function onUpdate(product) {
+                    const price = div.querySelector(".price")
+                    const quantity = div.querySelector(".quantity")
 
-    plusBtn.addEventListener("click", () => {
-        countSpan.textContent = Number(countSpan.textContent) + 1;
-    });
+                    console.log(items)
 
-    minusBtn.addEventListener("click", () => {
-        const current = Number(countSpan.textContent);
-        if (current > 1) {
-            countSpan.textContent = current - 1;
-        }
-    });
-});
+                    if (product.price) {
+                        items[product.id] = parseFloat(product.price) // update yung price before para updated yung total
+                    }
+
+
+                    price.innerHTML = format_price(product.price)
+                    quantity.innerHTML = product.quantity
+                    qtySpan.innerHTML = product.quantity
+
+                    updateTotal()
+                    updateSummary(product)
+                }
+
+                minusBtn.addEventListener("click", () => {
+                    add_order(product.id, -1).then((response) => {
+                        if (!response.success) {
+                            return
+                        }
+                        if (response.message.quantity <= 0) {
+                            div.remove()
+                            delete items[product.id]
+                        }
+
+                        onUpdate(response.message)
+
+
+                    })
+                })
+
+                plusBtn.addEventListener("click", () => {
+                    add_order(product.id, 1).then((response) => {
+                        if (!response.success) {
+                            return
+                        }
+
+                        if (response.message.quantity <= 0) {
+                            summary.remove()
+                            delete items[product.id]
+                        }
+
+                        onUpdate(response.message)
+
+                    })
+                })
+
+                displayContainer.append(div)
+                updateTotal()
+            })
+        })
+
+}
+
+display_orders().then(() => {
+    checkoutForm.addEventListener("submit", (e) => {
+        e.preventDefault()
+        onCheckout(e.target)
+    })
+})

@@ -64,12 +64,12 @@
 
       <ul class="sidebar-list">
         <!-- <li><a href="">NEW ARRIVALS</a></li> -->
-        <li><a href="shop.html?category=tops">TOPS</a></li>
-        <li><a href="shop.html?category=jackets">JACKETS</a></li>
-        <li><a href="shop.html?category=bottoms">BOTTOMS</a></li>
-        <li><a href="shop.html?category=dresses">DRESSES</a></li>
-        <li><a href="shop.html?category=accessories">ACCESSORIES</a></li>
-        <li><a href="shop.html?category=footwear">FOOTWEAR</a></li>
+        <li><a href="shop.php?category=tops">TOPS</a></li>
+        <li><a href="shop.php?category=jackets">JACKETS</a></li>
+        <li><a href="shop.php?category=bottoms">BOTTOMS</a></li>
+        <li><a href="shop.php?category=dresses">DRESSES</a></li>
+        <li><a href="shop.php?category=accessories">ACCESSORIES</a></li>
+        <li><a href="shop.php?category=footwear">FOOTWEAR</a></li>
         <li><a href="" class="last">VIEW ALL</a></li>
       </ul>
     </div>
@@ -101,7 +101,7 @@
           <span>₱100.00</span>
         </div>
         <span class="description deca">Shipping and discount codes are calculated at checkout.</span>
-        <button class="checkout deca">Check out</button>
+        <a class="checkout deca" href="checkout.php">Check out</a>
       </div>
     </div>
   </header>
@@ -129,11 +129,11 @@
         <ul class="filter-group">
           <h4>GENDER</h4>
           <li>
-            <input type="checkbox" id="gender" name="men" value="men" />
+            <input type="checkbox" id="gender" name="Men" value="men" />
             <label for="men">Men</label>
           </li>
           <li>
-            <input type="checkbox" id="gender" name="women" value="women" />
+            <input type="checkbox" id="gender" name="Women" value="women" />
             <label for="women">Women</label>
           </li>
         </ul>
@@ -143,11 +143,11 @@
           <div class="filter-price">
             <li>
               <label for="min">Minimum</label>
-              <input type="number" id="min" name="min" />
+              <input type="number" id="min" name="minimum" />
             </li>
             <li>
               <label for="max">Maximum</label>
-              <input type="number" id="max" name="max" />
+              <input type="number" id="max" name="maximum" />
             </li>
           </div>
         </ul>
@@ -203,62 +203,7 @@
           </ul>
         </div> -->
         <div class="products-body" id="products-body">
-          <a href="" class="card">
-            <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
-            <div class="card-description">
-              <span class="deca">Blue T-Shirt with striped collar </span>
-              <h4 class="peta">₱1,299.00</h4>
-            </div>
-          </a>
-          <a href="" class="card">
-            <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
-            <div class="card-description">
-              <span class="deca">Clothing Name</span>
-              <h4 class="peta">₱1,299.00</h4>
-            </div>
-          </a>
-          <a href="" class="card">
-            <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
-            <div class="card-description">
-              <span class="deca">Clothing Name</span>
-              <h4 class="peta">₱1,299.00</h4>
-            </div>
-          </a>
-          <a href="" class="card">
-            <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
-            <div class="card-description">
-              <span class="deca">Clothing Name</span>
-              <h4 class="peta">₱1,299.00</h4>
-            </div>
-          </a>
-          <a href="" class="card">
-            <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
-            <div class="card-description">
-              <span class="deca">Clothing Name</span>
-              <h4 class="peta">₱1,299.00</h4>
-            </div>
-          </a>
-          <a href="" class="card">
-            <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
-            <div class="card-description">
-              <span class="deca">Clothing Name</span>
-              <h4 class="peta">₱1,299.00</h4>
-            </div>
-          </a>
-          <a href="" class="card">
-            <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
-            <div class="card-description">
-              <span class="deca">Clothing Name</span>
-              <h4 class="peta">₱1,299.00</h4>
-            </div>
-          </a>
-          <a href="" class="card">
-            <img class="card-image" src="assets/products/french flair set.jpg" alt="" />
-            <div class="card-description">
-              <span class="deca">Clothing Name</span>
-              <h4 class="peta">₱1,299.00</h4>
-            </div>
-          </a>
+
         </div>
       </div>
     </section>

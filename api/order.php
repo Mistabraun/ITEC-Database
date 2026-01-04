@@ -2,11 +2,12 @@
 header('Content-Type: application/json');
 
 session_start();
-$user_id = $_SESSION["id"];
-if (!isset($user_id)) {
+if (!isset($_SESSION["id"])) {
     echo json_encode(['success' => false, 'message' => 'Error request method']);
     exit;
 }
+
+$user_id = $_SESSION["id"];
 
 require(__DIR__ . '/database.php');
 
@@ -15,10 +16,10 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
 
-    $stmt = $pdo->prepare("SELECT orders.product_id AS id, orders.quantity, orders.total_price AS price, products.name FROM orders INNER JOIN products ON orders.product_id = products.id WHERE orders.user_id = ?");
+    $stmt = $pdo->prepare("SELECT orders.product_id AS id, orders.quantity, orders.total_price AS price, products.name FROM orders INNER JOIN products ON orders.product_id = products.id WHERE orders.user_id = ? AND status = 'pending'");
     $stmt->execute([$user_id]);
     $data = $stmt->fetchAll();
-    echo json_encode(($data));
+    echo json_encode(["success" => true, "message" => $data]);
     exit;
 }
 
@@ -86,7 +87,7 @@ if ($method === 'POST') {
         $stmt = $pdo->prepare("UPDATE `orders` SET quantity = ?, total_price = ? WHERE id = ?");
         $stmt->execute([$quantity + $existingOrder['quantity'], $total_price + $existingOrder['total_price'], $existingOrder['id']]);
 
-        $stmt = $pdo->prepare("SELECT id, quantity, total_price AS price FROM `orders` WHERE user_id = ? AND product_id = ? AND status = 'pending'");
+        $stmt = $pdo->prepare("SELECT product_id AS id, quantity, total_price AS price FROM `orders` WHERE user_id = ? AND product_id = ? AND status = 'pending'");
         $stmt->execute([$user_id, $product_id]);
         $new_data = $stmt->fetch();
 

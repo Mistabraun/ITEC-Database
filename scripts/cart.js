@@ -1,4 +1,7 @@
 const cartlist = document.querySelector("#sidebar-cart .sidebar-list")
+const cartTotal = document.querySelector("#sidebar-cart .header.deca span")
+
+cartlist.innerHTML = ""
 
 const ORDERS_API = "api/order.php"
 
@@ -6,7 +9,14 @@ function get_orders() {
     return fetch(ORDERS_API, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
-    }).then((response) => response.json())
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            if (!response.success) {
+                return Promise.reject()
+            }
+            return response.message
+        })
 }
 
 function remove_order(id) {
@@ -37,10 +47,24 @@ function format_price(price) {
 }
 
 function update_cart() {
+    const items = {};
     cartlist.innerHTML = ""
+
+    function calculate_total() {
+        let total = 0;
+
+        Object.values(items).forEach((price) => {
+            total += price;
+        })
+
+        return total
+    }
+
     get_orders().then((response) => {
         response.forEach(product => {
-            console.log(product)
+
+            items[product.id] = parseFloat(product.price)
+
             const li = document.createElement("li")
             li.className = "cart-item"
 
@@ -67,6 +91,10 @@ function update_cart() {
             function onUpdate(response) {
                 priceElement.innerHTML = format_price(response.price)
                 countElement.innerHTML = response.quantity
+                if (response.price) {
+                    items[product.id] = parseFloat(response.price) // update yung price before para updated yung total
+                }
+                cartTotal.innerHTML = format_price(calculate_total())
             }
 
             const closeBtn = li.querySelector(".close")
@@ -76,7 +104,7 @@ function update_cart() {
                         return
                     }
                     li.remove()
-                    console.log("REMOVE")
+                    delete items[product.id]
                 })
 
             })
@@ -89,6 +117,7 @@ function update_cart() {
                     }
                     if (response.message.quantity <= 0) {
                         li.remove()
+                        delete items[product.id]
                     }
                     onUpdate(response.message)
                     console.log("DECREASE")
@@ -107,7 +136,8 @@ function update_cart() {
             cartlist.append(li)
         });
 
-    })
+        cartTotal.innerHTML = format_price(calculate_total())
+    }).catch(console.log)
 }
 
 update_cart()

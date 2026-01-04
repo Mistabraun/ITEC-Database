@@ -2,8 +2,11 @@ const productsBody = document.getElementById("products-body");
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
+const sidebarFilter = document.getElementById("side-bar-filter")
+
 const CATEGORY = "Tops";
 const API = "/api/shop.php";
+
 
 if (!urlParams.get("category")) {
     urlParams.append("category", CATEGORY);
@@ -39,8 +42,18 @@ function displayItems(value) {
 }
 
 function loadItems() {
+    const parent = productsBody.parentElement
+    // parent.classList.add("blur")
+    productsBody.classList.add("hidden")
+
+    productsBody.clas
     productsBody.innerHTML = "";
-    getItems().then((json) => {
+    setTimeout(() => {
+        // parent.classList.remove("blur")
+        productsBody.classList.remove("hidden")
+
+    }, 300);
+    return getItems().then((json) => {
         json.forEach(value => {
             displayItems(value);
         });
@@ -91,8 +104,71 @@ function hoverableItems() {
 
 }
 
+function setInputsEnabled(enabled) {
+    Array.from(sidebar.children).forEach(element => {
+        var descendants = sidebarFilter.querySelectorAll('input');
+
+        for (var i = 0; i < descendants.length; i++) {
+            var element = descendants[i];
+            element.readOnly = enabled
+        }
+    })
+}
+
+function inputChanged(event) {
+    const input = event.target
+    if (input.tagName !== "INPUT") {
+        return
+    }
+
+    const type = input.type
+    const name = input.name
+    const value = input.value
+    const id = input.id
+    const checked = input.checked
+
+    if (type == "radio") {
+        urlParams.set(name, value)
+    } else if (type == "checkbox") {
+        const modifiedId = id + "[]"
+        if (!checked) {
+            if (!urlParams.get(modifiedId)) {
+                return
+            }
+
+            const allValues = urlParams.getAll(modifiedId);
+            const remainingValues = allValues.filter(filterValue => filterValue !== value);
+            urlParams.delete(modifiedId);
+
+            remainingValues.forEach(value => {
+                urlParams.append(modifiedId, value);
+            });
+
+        } else {
+            urlParams.append(modifiedId, value)
+        }
+    } else if (type == "number") {
+        if (value == "") {
+            if (!urlParams.get(name)) {
+                return
+            }
+            urlParams.delete(name)
+        } else {
+            urlParams.set(name, value)
+        }
+    }
+
+    setInputsEnabled(true)
+    setTimeout(() => {
+        setInputsEnabled(false)
+    }, 300);
+    loadItems()
 
 
-
+}
 
 loadItems()
+    .then(hoverableItems)
+    .then(() => {
+        sidebarFilter.addEventListener("change", inputChanged)
+    })
