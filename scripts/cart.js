@@ -105,6 +105,7 @@ function update_cart() {
                     }
                     li.remove()
                     delete items[product.id]
+                    cartTotal.innerHTML = format_price(calculate_total())
                 })
 
             })

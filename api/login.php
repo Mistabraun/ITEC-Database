@@ -6,6 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] !== "POST") {
     return;
 }
 
+session_start();
+
+if (isset($_SESSION['email'])) {
+    echo json_encode(["success" => true, "message" => "Logged in"]);
+    return;
+}
+
 
 $rawData = file_get_contents("php://input");
 $data = json_decode($rawData, true);
@@ -20,13 +27,6 @@ if ((strlen($email) <= 0)  || (strlen($password) <= 0)) {
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode(["success" => false, "message" => "Invalid email"]);
-    return;
-}
-
-session_start();
-
-if (isset($_SESSION['email'])) {
-    echo json_encode(["success" => false, "message" => "Invalid request"]);
     return;
 }
 

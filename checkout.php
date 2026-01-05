@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +45,7 @@
                     <button id="cart-view" disabled><img src="assets/logo/cart-2.svg" alt="Cart" /></button>
                 </li>
                 <?php
-                session_start();
+
                 if (isset($_SESSION['email'])) {
                     echo '<li><button id="signout"><img src="assets/logo/login-svgrepo-com.svg" alt="Sign out" /></button></li>';
                 }
@@ -100,6 +108,10 @@
     <main>
         <div class="container">
             <div class="c-checkout">
+                <div class="success">
+                    <img src="assets/logo/check_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="check">
+                    <div class="text">CHECK OUT SUCESSFULLY</div>
+                </div>
                 <h1>Checkout</h1>
                 <form method="post" id="checkoutform">
                     <div class="left-side">

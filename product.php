@@ -1,3 +1,12 @@
+<?php
+// session_start();
+// if (!isset($_SESSION['email'])) {
+//   header("Location: login.php");
+//   exit();
+// }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -189,7 +198,6 @@
 </body>
 <script src="scripts/app.js"></script>
 <script src="scripts/cart.js"></script>
-<script src="scripts/shop.js"></script>
 <script src="scripts/auth.js"></script>
 <script src="scripts/product.js"></script>
 

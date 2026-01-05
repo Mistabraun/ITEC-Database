@@ -42,14 +42,11 @@ function displayItems(value) {
 }
 
 function loadItems() {
-    const parent = productsBody.parentElement
-    // parent.classList.add("blur")
     productsBody.classList.add("hidden")
 
     productsBody.clas
     productsBody.innerHTML = "";
     setTimeout(() => {
-        // parent.classList.remove("blur")
         productsBody.classList.remove("hidden")
 
     }, 300);

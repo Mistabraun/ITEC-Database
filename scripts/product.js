@@ -24,6 +24,20 @@ function getData() {
         });
 }
 
+function isUserLoggedIn() {
+    return fetch("/api/login.php",
+        {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+        }
+    )
+        .then((response) => response.json())
+        .then((response) => {
+            console.log(response)
+            return response.success
+        })
+}
+
 
 function initialize(response) {
     const data = response.message
@@ -76,31 +90,40 @@ function initialize(response) {
             return
         }
 
-        debounce = true
+        sidebarcart.classList.add("active");
+        setBlackBackground(true);
 
-        const form = event.target;
-        const formData = new FormData(form);
+        isUserLoggedIn().then((loggedin) => {
+            if (!loggedin) {
+                const container = document.querySelector("#sidebar-cart .sidebar-list")
+                container.innerHTML = `<div style="color: red;/* align-items: center; */text-align: center;margin-top: 1rem;" class="deca">PLEASE LOGIN</div>`
+                console.log(container)
+            } else {
+                debounce = true
 
-        const id = url.get("id")
-        formData.append("id", id)
+                const form = event.target;
+                const formData = new FormData(form);
 
-        fetch(CHECKOUT_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(Object.fromEntries(formData.entries()))
+                const id = url.get("id")
+                formData.append("id", id)
+
+                fetch(CHECKOUT_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(Object.fromEntries(formData.entries()))
+                })
+                    .then((response) => response.json())
+                    .then(update_cart)
+                    .finally(response => {
+                        formData.delete("id")
+                        setTimeout(() => {
+                            debounce = false
+                        }, 500);
+
+                    })
+            }
         })
-            .then((response) => response.json())
-            .then(update_cart).then(() => {
-                sidebarcart.classList.add("active");
-                setBlackBackground(true);
-            })
-            .finally(response => {
-                formData.delete("id")
-                setTimeout(() => {
-                    debounce = false
-                }, 500);
 
-            })
 
     }))
 

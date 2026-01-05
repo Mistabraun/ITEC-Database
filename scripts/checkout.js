@@ -20,7 +20,17 @@ function onCheckout(form) {
     })
         .then(response => response.json())
         .then((response => {
-            console.log(response)
+            if (!response.success) {
+                return
+            }
+
+            const success = document.querySelector(".c-checkout .success")
+            success.style.display = "flex"
+
+            setTimeout(() => {
+                window.location = "/shop.php"
+            }, 3000);
+
         }))
 
 }

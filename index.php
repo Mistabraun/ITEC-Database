@@ -144,19 +144,19 @@
       </div>
 
       <div class="section-images">
-        <a href="/shop.php" class="card">
+        <a href="/shop.php?category=Tops&&gender[]=men" class="card">
           <img src="assets/images/986305-Black_1.webp" alt="" />
           <h5>MEN'S TOPS</h5>
         </a>
-        <a href="/shop.php" class="card">
+        <a href="/shop.php?category=bottoms&&gender[]=men" class="card">
           <img src="assets/images/PEN-Q2_1333x2000_px_CATEGORY_BANNERS_MENS_BOTTOMS_96f18bfc-1b46-492a-8980-c8d2b35642e7.webp" alt="" />
           <h5>MEN'S BOTTOMS</h5>
         </a>
-        <a href="/shop.php" class="card">
+        <a href="/shop.php?category=Tops&&gender[]=women" class="card">
           <img src="assets/images/988338-Off_White_1.webp" alt="" />
           <h5>WOMEN'S TOPS</h5>
         </a>
-        <a href="/shop.php" class="card">
+        <a href="/shop.php?category=bottoms&&gender[]=women" class="card">
           <img src="assets/images/PEN-Q2_1333x2000_px_CATEGORY_BANNERS_WOMENS_BOTTOMS_5ad612b6-654d-489b-9381-7acb213d9b6a.webp" alt="" />
           <h5>WOMEN'S BOTTOMS</h5>
         </a>
