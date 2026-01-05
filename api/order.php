@@ -16,7 +16,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
 
-    $stmt = $pdo->prepare("SELECT orders.product_id AS id, orders.quantity, orders.total_price AS price, products.name FROM orders INNER JOIN products ON orders.product_id = products.id WHERE orders.user_id = ? AND status = 'pending'");
+    $stmt = $pdo->prepare("SELECT orders.product_id AS id, orders.quantity, orders.total_price AS price, products.name, orders.size FROM orders INNER JOIN products ON orders.product_id = products.id WHERE orders.user_id = ? AND status = 'pending'");
     $stmt->execute([$user_id]);
     $data = $stmt->fetchAll();
     echo json_encode(["success" => true, "message" => $data]);

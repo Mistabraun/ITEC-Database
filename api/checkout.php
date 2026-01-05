@@ -34,28 +34,30 @@ require(__DIR__ . '/database.php');
 $params = implode(',', array_fill(0, count($orders), '?'));
 
 $stmt = $pdo->prepare("
-    UPDATE orders 
-    SET status = 'completed' 
-    WHERE user_id = ? 
-    AND product_id IN ($params)
-");
-
-$stmt->execute(array_merge([$user_id], $orders));
-
-$stmt = $pdo->prepare("
     SELECT * FROM orders
     WHERE user_id = ? 
-    AND product_id IN ($params)
+    AND product_id IN ($params) AND status ='pending'
 ");
 
 $stmt->execute(array_merge([$user_id], $orders));
 $new_data = $stmt->fetchAll();
+
+$stmt = $pdo->prepare("
+    UPDATE orders 
+    SET status = 'completed' 
+    WHERE user_id = ? 
+    AND product_id IN ($params) AND status = 'pending'
+");
+
+$stmt->execute(array_merge([$user_id], $orders));
+
 
 foreach ($new_data as $data) {
     $stmt = $pdo->prepare("INSERT INTO history VALUES ('', ?, ?, ?, ?, ?, ?, ?)");
     try {
         $stmt->execute([$user_id, $data["product_id"], $data["id"], $fname, $contact, $address, $payment]);
     } catch (Exception $e) {
+        echo $e;
         echo json_encode(["success" => false, "message" => "Duplicated entry"]);
         exit;
     }

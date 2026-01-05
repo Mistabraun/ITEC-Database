@@ -1,8 +1,6 @@
 const cartlist = document.querySelector("#sidebar-cart .sidebar-list")
 const cartTotal = document.querySelector("#sidebar-cart .header.deca span")
 
-cartlist.innerHTML = ""
-
 const ORDERS_API = "api/order.php"
 
 function get_orders() {

@@ -80,20 +80,7 @@ if (!isset($_SESSION['email'])) {
                 <button id="sidebar-cart-close"><img src="assets/logo/exit.svg" alt="" /></button>
             </div>
             <ul class="sidebar-list">
-                <li class="cart-item">
-                    <div class="cart-header">
-                        <h6 class="exa">Graphic Cropped Shirt</h6>
-                        <button class="close"><img src="assets/logo/exit.svg" alt="" /></button>
-                    </div>
-                    <div class="cart-body">
-                        <div class="cart-count">
-                            <button class="cart-button">-</button>
-                            <span class="cart-count exa">1</span>
-                            <button class="cart-button">+</button>
-                        </div>
-                        <span class="price exa" id="cart-price">₱549.00</span>
-                    </div>
-                </li>
+
             </ul>
             <div class="sidebar-footer">
                 <div class="header deca">
@@ -245,5 +232,6 @@ if (!isset($_SESSION['email'])) {
 <script src="scripts/cart.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/checkout.js"></script>
+<script src="scripts/auth.js"></script>
 
 </html>

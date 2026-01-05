@@ -42,18 +42,21 @@ function displayItems(value) {
 }
 
 function loadItems() {
-    productsBody.classList.add("hidden")
 
-    productsBody.clas
-    productsBody.innerHTML = "";
-    setTimeout(() => {
-        productsBody.classList.remove("hidden")
+    // para di violently nag de-delete
+    // parang nag stu-stutter kapag tinanggal muna yung mga previous products bago mag lagay ng new eh
 
-    }, 300);
+    const prev_children = [...productsBody.children] // duplicate
+    console.log(Array.from(prev_children))
+
     return getItems().then((json) => {
         json.forEach(value => {
             displayItems(value);
         });
+    }).then(() => {
+        Array.from(prev_children).forEach((e) => {
+            e.remove()
+        })
     })
 }
 
