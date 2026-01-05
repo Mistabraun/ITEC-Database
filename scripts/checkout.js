@@ -113,7 +113,7 @@ function display_orders() {
 
 
                     price.innerHTML = format_price(product.price)
-                    quantity.innerHTML = product.quantity
+                    quantity.innerHTML = "x" + product.quantity
                     qtySpan.innerHTML = product.quantity
 
                     updateTotal()
