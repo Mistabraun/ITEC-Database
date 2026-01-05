@@ -109,7 +109,11 @@ if (!isset($_SESSION['email'])) {
                         </div>
                         <div class="box">
                             <label for="contact">Contact Number</label>
-                            <input type="tel" name="contact" id="contact" required>
+                            <input type="tel"
+                                inputmode="numeric"
+                                pattern="[0-9-]*"
+                                oninput="this.value = this.value.replace(/[^0-9-]/g, '')"
+                                name="contact" id="contact" required>
                         </div>
                         <div class="box">
                             <label for="address">Address</label>
